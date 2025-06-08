@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36127.28
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeadsAI", "BeadsAI\BeadsAI.csproj", "{AA016A08-7285-44E0-858A-42445E0306E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BraceletTest", "BraceletTest\BraceletTest.csproj", "{A54B7318-CFF7-4DD3-96EB-D617AE2063E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA016A08-7285-44E0-858A-42445E0306E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA016A08-7285-44E0-858A-42445E0306E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA016A08-7285-44E0-858A-42445E0306E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA016A08-7285-44E0-858A-42445E0306E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54B7318-CFF7-4DD3-96EB-D617AE2063E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54B7318-CFF7-4DD3-96EB-D617AE2063E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54B7318-CFF7-4DD3-96EB-D617AE2063E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54B7318-CFF7-4DD3-96EB-D617AE2063E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26417962-C5FE-4A4F-9AEE-79C6D0133794}
+	EndGlobalSection
+EndGlobal

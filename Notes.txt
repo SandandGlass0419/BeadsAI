@@ -1,0 +1,13 @@
+throw exeption on
+implemntation method
+
+throw new ArgumentException("Layer requirments not met. ", nameof(Layer));
+
+should adjust weights
+set max Model len as 5
+output layer set as 
+4 of prev layer last
+
+all weights in +- 0.7
+white = 0.5
+black = -0.5
