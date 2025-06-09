@@ -1,48 +1,41 @@
-﻿using System.Windows.Media;
-
-namespace BeadsAI.Core.Neural_Network
+﻿namespace BeadsAI.Core
 {
-    public sealed class Color
+    public sealed class WeightColor
     {
         public string ColorName { get; private set; }
         public float[] Weights { get; private set; }
 
-        public Color(string ColorName, float[] Weights)
+        public WeightColor(string ColorName, float[] Weights)
         {
             this.ColorName = ColorName;
             this.Weights = Weights;
         }
 
-        public static Color Create(string ColorName, float[] Weights)
+        public static WeightColor Create(string ColorName, float[] Weights)
         {
-            return new Color(ColorName, Weights);
-        }
-
-        public override string ToString()
-        {
-            return ColorName;
+            return new WeightColor(ColorName, Weights);
         }
     }
 
     // mother class for storing color definitions
     public abstract class ColorMap
     {
-        public Dictionary<string, Color> Colors { get; private set; } = new();
+        public Dictionary<string, WeightColor> Colors { get; private set; } = new();
 
-        public void Add(Color Color)
+        public void Add(WeightColor Color)
         {
             IsMetRequirements(Color);
 
             Colors.Add(Color.ColorName,Color);
         }
 
-        public Color[] ToColors(string[] string_colors)
+        public WeightColor[] ToColors(string[] string_colors)
         {
-            Color[] color_array = Array.Empty<Color>();
+            WeightColor[] color_array = Array.Empty<WeightColor>();
 
             foreach (string str in string_colors)
             {
-                if (Colors.TryGetValue(str,out Color? element))
+                if (Colors.TryGetValue(str,out WeightColor? element))
                 {
                     color_array = color_array.Append(element).ToArray();
                 }
@@ -56,6 +49,6 @@ namespace BeadsAI.Core.Neural_Network
             return color_array;
         }
 
-        protected abstract bool IsMetRequirements(Color Color); // check if new Color is valid
+        protected abstract bool IsMetRequirements(WeightColor Color); // check if new Color is valid
     }
 }

@@ -12,7 +12,7 @@ namespace BeadsAI.Core.Neural_Network
 
         public NetworkCore() : base("NetworkCore") { }
 
-        public void AddLayer(Color[] Layer)
+        public void AddLayer(WeightColor[] Layer)
         {
             LayerMetRequirments(Layer);
 
@@ -22,7 +22,7 @@ namespace BeadsAI.Core.Neural_Network
 
         // sets weight, bias using SetWeights, SetBias. Weights use color definition, so is implemented
         // biases are set by user later, so method is set abstract
-        private Linear CreateLinear(Color[] Layer)
+        private Linear CreateLinear(WeightColor[] Layer)
         {
             long length = Layer.First().Weights.LongLength;
             long amount = Layer.LongLength;
@@ -38,13 +38,13 @@ namespace BeadsAI.Core.Neural_Network
             return newLinear;
         }
 
-        protected abstract bool LayerMetRequirments(Color[] Layer);
+        protected abstract bool LayerMetRequirments(WeightColor[] Layer);
 
-        private Tensor SetWeights(Color[] Layer,long length,long amount)
+        private Tensor SetWeights(WeightColor[] Layer,long length,long amount)
         {
             float[] Weights = Array.Empty<float>();
 
-            foreach (Color color in Layer)
+            foreach (WeightColor color in Layer)
             {
                 Weights = Weights.Concat(color.Weights).ToArray();
             }
@@ -52,7 +52,7 @@ namespace BeadsAI.Core.Neural_Network
             return torch.tensor(Weights).reshape(amount,length);
         }
 
-        protected abstract Tensor SetBias(Color[] Layer);
+        protected abstract Tensor SetBias(WeightColor[] Layer);
 
         public Tensor Run(Tensor Input)
         {

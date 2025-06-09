@@ -11,3 +11,7 @@ output layer set as
 all weights in +- 0.7
 white = 0.5
 black = -0.5
+
+
+RGB values are float
+0 ~ 1

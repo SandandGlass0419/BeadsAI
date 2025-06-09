@@ -1,4 +1,5 @@
 ﻿using BeadsAI;
+using BeadsAI.Core;
 using BeadsAI.Core.Neural_Network;
 using System.Linq;
 
@@ -10,20 +11,20 @@ namespace BraceletTest
         {
             InputColor inputColor = new();
 
-            inputColor.Add(Color.Create("Red", ExampleWeights.OneValue((int) BraceletNetwork.WeightLen.Input,0.55f)));
-            inputColor.Add(Color.Create("Blue", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Input, -0.478f,0.017f)));
-            inputColor.Add(Color.Create("Green", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Input, -0.99f, 0.05f)));
+            inputColor.Add(WeightColor.Create("Red", ExampleWeights.OneValue((int) BraceletNetwork.WeightLen.Input,0.55f)));
+            inputColor.Add(WeightColor.Create("Blue", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Input, -0.478f,0.017f)));
+            inputColor.Add(WeightColor.Create("Green", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Input, -0.99f, 0.05f)));
 
             HiddenColor hiddenColor = new();
 
-            hiddenColor.Add(Color.Create("Red", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Hidden, -0.2f, 0.079f)));
-            hiddenColor.Add(Color.Create("Blue", ExampleWeights.Increasing((int)BraceletNetwork.WeightLen.Hidden, 0.638f, -0.12f)));
-            hiddenColor.Add(Color.Create("Green", ExampleWeights.OneValue((int) BraceletNetwork.WeightLen.Hidden, 0.35f)));
+            hiddenColor.Add(WeightColor.Create("Red", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Hidden, -0.2f, 0.079f)));
+            hiddenColor.Add(WeightColor.Create("Blue", ExampleWeights.Increasing((int)BraceletNetwork.WeightLen.Hidden, 0.638f, -0.12f)));
+            hiddenColor.Add(WeightColor.Create("Green", ExampleWeights.OneValue((int) BraceletNetwork.WeightLen.Hidden, 0.35f)));
 
             OutputColor outputColor = new();
 
-            outputColor.Add(Color.Create("Out", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Output, -0.249f,0.104f)));
-            outputColor.Add(Color.Create("Out1", ExampleWeights.OneValue((int) BraceletNetwork.WeightLen.Output, 0.57f)));
+            outputColor.Add(WeightColor.Create("Out", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Output, -0.249f,0.104f)));
+            outputColor.Add(WeightColor.Create("Out1", ExampleWeights.OneValue((int) BraceletNetwork.WeightLen.Output, 0.57f)));
             //outputColor.Add
             
             BraceletNetwork MyNet = new();

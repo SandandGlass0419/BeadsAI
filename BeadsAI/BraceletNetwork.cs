@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Media3D;
+﻿using BeadsAI.Core;
 using BeadsAI.Core.Neural_Network;
 using TorchSharp;
 
@@ -28,13 +23,13 @@ namespace BeadsAI
         public const long max_model_size = 4;
 
 
-        protected override torch.Tensor SetBias(Color[] Layer)
+        protected override torch.Tensor SetBias(WeightColor[] Layer)
         {
             return //ExampleWeights.Increasing(Layer.Length, -0.2f, 1f);
             torch.zeros(Layer.Length);
         }
 
-        protected override bool LayerMetRequirments(Color[] Layer)
+        protected override bool LayerMetRequirments(WeightColor[] Layer)
         {
             long model_size = Model.Count;
 
@@ -82,13 +77,13 @@ namespace BeadsAI
 
     public class InputColor : ColorMap
     {
-        protected override bool IsMetRequirements(Color Color)
+        protected override bool IsMetRequirements(WeightColor Color)
         {
             if (Colors.ContainsKey(Color.ColorName)) // checks if color to add is already in dictionary
-            { throw new ArgumentException($"{nameof(Color)} Already exists in Dictionary."); }
+            { throw new ArgumentException($"{nameof(WeightColor)} Already exists in Dictionary."); }
 
             if (Color.Weights.Length != (int) BraceletNetwork.WeightLen.Input) // checks new color's weight length is as specified
-            { throw new ArgumentException($"{nameof(Color.Weights)} Doesn't have specified length."); }
+            { throw new ArgumentException($"{nameof(WeightColor.Weights)} Doesn't have specified length."); }
 
             return true;
         }
@@ -96,13 +91,13 @@ namespace BeadsAI
 
     public class HiddenColor : ColorMap
     {
-        protected override bool IsMetRequirements(Color Color)
+        protected override bool IsMetRequirements(WeightColor Color)
         {
             if (Colors.ContainsKey(Color.ColorName))
-            { throw new ArgumentException($"{nameof(Color)} Already exists in Dictionary."); }
+            { throw new ArgumentException($"{nameof(WeightColor)} Already exists in Dictionary."); }
             
             if (Color.Weights.Length != (int) BraceletNetwork.WeightLen.Hidden)
-            { throw new ArgumentException($"{nameof(Color.Weights)} Doesn't have specified length."); }
+            { throw new ArgumentException($"{nameof(WeightColor.Weights)} Doesn't have specified length."); }
 
             return true;
         }
@@ -110,13 +105,13 @@ namespace BeadsAI
 
     public class OutputColor : ColorMap
     {
-        protected override bool IsMetRequirements(Color Color)
+        protected override bool IsMetRequirements(WeightColor Color)
         {
             if (Colors.ContainsKey(Color.ColorName))
-            { throw new ArgumentException($"{nameof(Color)} Already exists in Dictionary."); }
+            { throw new ArgumentException($"{nameof(WeightColor)} Already exists in Dictionary."); }
 
             if (Color.Weights.Length != (int) BraceletNetwork.WeightLen.Output)
-            { throw new ArgumentException($"{nameof(Color.Weights)} Doesn't have specified length."); }
+            { throw new ArgumentException($"{nameof(WeightColor.Weights)} Doesn't have specified length."); }
 
             return true;
         }
