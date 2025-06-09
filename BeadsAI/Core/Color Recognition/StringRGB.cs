@@ -1,6 +1,6 @@
 ﻿using SixLabors.ImageSharp.PixelFormats;
 
-namespace BeadsAI.Core.Recognition
+namespace BeadsAI.Core.Color_Recognition
 {
     public sealed class StringRGB
     {

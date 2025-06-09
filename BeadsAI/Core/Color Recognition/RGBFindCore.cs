@@ -1,4 +1,4 @@
-﻿using BeadsAI.Core.Recognition;
+﻿using BeadsAI.Core.Color_Recognition;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
