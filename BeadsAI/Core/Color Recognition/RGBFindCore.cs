@@ -1,19 +1,18 @@
-﻿using BeadsAI.Core.Color_Recognition;
-using SixLabors.ImageSharp;
+﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
-namespace BeadsAI.Core.Gemini
+namespace BeadsAI.Core.Color_Recognition
 {
     public class RGBFindCore
     {
-        public StringRGBMap strRGBMap { get; private set; }
+        public StringRGBMap strRGBMap { get; private set; } = new();
 
-        public RGBFindCore(StringRGBMap strRGBmap)
+        public static Image<Rgba32> PathToImage(string path)
         {
-            this.strRGBMap = strRGBmap;
+            return Image.Load<Rgba32>(path);
         }
 
-        public Rgba32 GetAverageRGB(Image<Rgba32> image)
+        protected Rgba32 GetAverageRGB(Image<Rgba32> image)
         {
             int pixelAmount = image.Width * image.Height;
 
@@ -73,7 +72,7 @@ namespace BeadsAI.Core.Gemini
             return blue;
         }
 
-        public string FindCloseColor(Rgba32 rgb)
+        protected string FindCloseColor(Rgba32 rgb)
         {
             (string color_name, double distance) minimum = ("None", float.MaxValue);
 

@@ -1,6 +1,7 @@
 ﻿using BeadsAI;
 using BeadsAI.Core;
 using BeadsAI.Core.Neural_Network;
+using System.Collections.Specialized;
 using System.Linq;
 
 namespace BraceletTest
@@ -9,24 +10,31 @@ namespace BraceletTest
     {
         static void Main(string[] args)
         {
+            //NetworkTest();
+
+            RecognitionTest();
+        }
+
+        static void NetworkTest()
+        {
             InputColor inputColor = new();
 
-            inputColor.Add(WeightColor.Create("Red", ExampleWeights.OneValue((int) BraceletNetwork.WeightLen.Input,0.55f)));
-            inputColor.Add(WeightColor.Create("Blue", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Input, -0.478f,0.017f)));
-            inputColor.Add(WeightColor.Create("Green", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Input, -0.99f, 0.05f)));
+            inputColor.Add(WeightColor.Create("Red", ExampleWeights.OneValue((int)BraceletNetwork.WeightLen.Input, 0.55f)));
+            inputColor.Add(WeightColor.Create("Blue", ExampleWeights.Increasing((int)BraceletNetwork.WeightLen.Input, -0.478f, 0.017f)));
+            inputColor.Add(WeightColor.Create("Green", ExampleWeights.Increasing((int)BraceletNetwork.WeightLen.Input, -0.99f, 0.05f)));
 
             HiddenColor hiddenColor = new();
 
-            hiddenColor.Add(WeightColor.Create("Red", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Hidden, -0.2f, 0.079f)));
+            hiddenColor.Add(WeightColor.Create("Red", ExampleWeights.Increasing((int)BraceletNetwork.WeightLen.Hidden, -0.2f, 0.079f)));
             hiddenColor.Add(WeightColor.Create("Blue", ExampleWeights.Increasing((int)BraceletNetwork.WeightLen.Hidden, 0.638f, -0.12f)));
-            hiddenColor.Add(WeightColor.Create("Green", ExampleWeights.OneValue((int) BraceletNetwork.WeightLen.Hidden, 0.35f)));
+            hiddenColor.Add(WeightColor.Create("Green", ExampleWeights.OneValue((int)BraceletNetwork.WeightLen.Hidden, 0.35f)));
 
             OutputColor outputColor = new();
 
-            outputColor.Add(WeightColor.Create("Out", ExampleWeights.Increasing((int) BraceletNetwork.WeightLen.Output, -0.249f,0.104f)));
-            outputColor.Add(WeightColor.Create("Out1", ExampleWeights.OneValue((int) BraceletNetwork.WeightLen.Output, 0.57f)));
+            outputColor.Add(WeightColor.Create("Out", ExampleWeights.Increasing((int)BraceletNetwork.WeightLen.Output, -0.249f, 0.104f)));
+            outputColor.Add(WeightColor.Create("Out1", ExampleWeights.OneValue((int)BraceletNetwork.WeightLen.Output, 0.57f)));
             //outputColor.Add
-            
+
             BraceletNetwork MyNet = new();
 
             MyNet.AddLayer(inputColor.ToColors(["Red", "Blue", "Blue", "Green", "Red", "Green", "Blue", "Green"]));
@@ -36,7 +44,7 @@ namespace BraceletTest
 
             float[] input1 = { 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1 };
             float[] input2 = { 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0 };
-            float[] input3 = { 0.5f,0.5f, 0.5f, 0.5f, 0.5f, -0.5f, -0.5f, 0.5f, 0.5f, -0.5f, -0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
+            float[] input3 = { 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, -0.5f, -0.5f, 0.5f, 0.5f, -0.5f, -0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f };
             float[] input4 = { 0.1273f, 0.3783f, 0.93f, 0.2739f, 0.173748f, 0.17653f, 0.837f, 0.16f, 0.547f, 0.92773f, 1.1523f, 0.368f, 0.135f, 0.1343f, 0.00123f, 0.0983f };
 
             var result = MyNet.Run(MyNet.ToTensor(input3));
@@ -44,6 +52,20 @@ namespace BraceletTest
             var outarray = result.data<float>().ToArray();
 
             Console.WriteLine($"{outarray[0]} , {outarray[1]}");
+        }
+
+        static void RecognitionTest()
+        {
+            BraceletRecognition RecogTest = new();
+
+            var pp = RecogTest.RGBDefiner("Purple", "C:\\pics\\Purple.jpg");
+            var bl = RecogTest.RGBDefiner("Blue", "C:\\pics\\Blue.jpg");
+
+            var res1 = RecogTest.FindBraceletColors(BraceletRecognition.PathToImage("C:\\pics\\Purple.jpg"));
+            var res2 = RecogTest.FindBraceletColors(BraceletRecognition.PathToImage("C:\\pics\\Blue.jpg"));
+
+            //Console.WriteLine($"{(double) rgb.R},{(double) rgb.G},{(double) rgb.B}");
+            Console.WriteLine($"{res1}, {res2}");
         }
     }
 }
