@@ -4,7 +4,7 @@ using static TorchSharp.torch;
 using static TorchSharp.torch.nn.functional;
 using System.Linq;
 
-namespace BeadsAI.Core.Neural_Network
+namespace BeadsAI.Core.NeuralNetwork
 {
     public abstract class NetworkCore : nn.Module
     {

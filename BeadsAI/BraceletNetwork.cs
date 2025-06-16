@@ -1,5 +1,5 @@
 ﻿using BeadsAI.Core;
-using BeadsAI.Core.Neural_Network;
+using BeadsAI.Core.NeuralNetwork;
 using TorchSharp;
 
 namespace BeadsAI

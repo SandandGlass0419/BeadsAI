@@ -1,48 +1,65 @@
-﻿using BeadsAI.Core.Color_Recognition;
+﻿using BeadsAI.Core.ColorRecognition;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp;
 
 namespace BeadsAI
 {
-    public class BraceletRecognition : RGBFindCore
+    public class BraceletRecognitionConfig : IRGBFindConfig
     {
-        public readonly Rectangle bounds = new(650,1950,3220,200);
+        public static Rectangle Bounds => new Rectangle(1,1,1,1);
+        public static int Parts => 32;
+         
+        public const string saved_dir = "C:\\pics\\";
 
-        public const int parts = 32;
+        public static Dictionary<string, Rgba32> strRGBMap => new()
+        {
+            {"Red",RGBDefiner(saved_dir + "Red.jpg") }
+        };
 
-        // method to define bead colors, take image of one colored bracelet
-        // and calculates average rgb value
-        public Rgba32 RGBDefiner(string ColorName,string Path)
+        public static Rgba32 RGBDefiner(string Path)
         {
             Image<Rgba32> image = BraceletRecognition.PathToImage(Path);
 
-            image = CropTool.CropImage(image, bounds);
+            image = CropTool.CropImage(image, Bounds);
 
-            Rgba32 new_rgb = GetAverageRGB(image);
-
-            strRGBMap.Add(StringRGB.Create(ColorName,new_rgb));
+            Rgba32 new_rgb = BraceletRecognition.GetAverageRGB(image);
 
             image.Dispose();
 
             return new_rgb;
         }
+    }
 
-        public string[] FindBraceletColors(Image<Rgba32> image)
+    public class BraceletRecognition : RGBFindCore
+    {
+        public override Dictionary<string, Rgba32> strRGBMap { get; protected set; } = BraceletRecognitionConfig.strRGBMap;
+
+        public string[] FindBraceletColors(string Path)
         {
-            image = CropTool.CropImage(image,bounds);
-            Image<Rgba32>[] images = CropTool.SplitImageVertical(image,parts);
+            Image<Rgba32>[] images = ProcessImage(Path);
 
-            string[] BraceletColors = new string[0];
+            string[] BraceletColors = Array.Empty<string>();
 
             foreach (var element_image in images)
             {
                 Rgba32 averageRGB = GetAverageRGB(element_image);
                 BraceletColors = [.. BraceletColors, FindCloseColor(averageRGB)];
             }
+            
+            return BraceletColors;
+        }
+
+        private Image<Rgba32>[] ProcessImage(string Path)
+        {
+            Image<Rgba32> image = PathToImage(Path);
+
+            image = CropTool.CropImage(image, BraceletRecognitionConfig.Bounds);
+
+            Image<Rgba32>[] images = CropTool.SplitImageVertical(image, BraceletRecognitionConfig.Parts);
 
             image.Dispose();
 
-            return BraceletColors;
+            return images;
         }
     }
 }

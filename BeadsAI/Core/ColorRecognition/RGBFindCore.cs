@@ -1,18 +1,27 @@
 ﻿using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.ColorSpaces;
 using SixLabors.ImageSharp.PixelFormats;
+using BeadsAI;
 
-namespace BeadsAI.Core.Color_Recognition
+namespace BeadsAI.Core.ColorRecognition
 {
-    public class RGBFindCore
+    public interface IRGBFindConfig
     {
-        public StringRGBMap strRGBMap { get; private set; } = new();
+        public static abstract Rectangle Bounds { get; }
+        public static abstract int Parts { get; }
+        public static Dictionary<string, Rgba32> strRGBMap { get; }
+    }
+
+    public abstract class RGBFindCore
+    {
+        public abstract Dictionary<string,Rgba32> strRGBMap { get; protected set; }
 
         public static Image<Rgba32> PathToImage(string path)
         {
             return Image.Load<Rgba32>(path);
         }
 
-        protected Rgba32 GetAverageRGB(Image<Rgba32> image)
+        public static Rgba32 GetAverageRGB(Image<Rgba32> image)
         {
             int pixelAmount = image.Width * image.Height;
 
@@ -24,10 +33,12 @@ namespace BeadsAI.Core.Color_Recognition
             byte greenAvg = (byte) (greenSum / pixelAmount);
             byte blueAvg = (byte) (blueSum / pixelAmount);
 
+            image.Dispose();
+
             return new Rgba32(redAvg, greenAvg, blueAvg);
         }
 
-        private double SumRed(Image<Rgba32> image)
+        private static double SumRed(Image<Rgba32> image)
         {
             double red = 0;
 
@@ -42,7 +53,7 @@ namespace BeadsAI.Core.Color_Recognition
             return red;
         }
 
-        private double SumGreen(Image<Rgba32> image)
+        private static double SumGreen(Image<Rgba32> image)
         {
             double green = 0;
 
@@ -57,7 +68,7 @@ namespace BeadsAI.Core.Color_Recognition
             return green;
         }
 
-        private double SumBlue(Image<Rgba32> image)
+        private static double SumBlue(Image<Rgba32> image)
         {
             double blue = 0;
 
@@ -72,17 +83,17 @@ namespace BeadsAI.Core.Color_Recognition
             return blue;
         }
 
-        protected string FindCloseColor(Rgba32 rgb)
+        public string FindCloseColor(Rgba32 rgb)
         {
             (string color_name, double distance) minimum = ("None", float.MaxValue);
 
-            foreach (var c_color in strRGBMap.RGBMap.Keys) // candidate color
+            foreach (string StringColor in strRGBMap.Keys) // candidate color
             {
-                double distance = Math.Sqrt(Math.Pow(strRGBMap.RGBMap[c_color].R - rgb.R,2) +
-                                            Math.Pow(strRGBMap.RGBMap[c_color].G - rgb.G,2) +
-                                            Math.Pow(strRGBMap.RGBMap[c_color].B - rgb.B,2));
+                double distance = Math.Sqrt(Math.Pow(strRGBMap[StringColor].R - rgb.R,2) +
+                                            Math.Pow(strRGBMap[StringColor].G - rgb.G,2) +
+                                            Math.Pow(strRGBMap[StringColor].B - rgb.B,2));
 
-                minimum = distance < minimum.distance ? (c_color, distance) : minimum;
+                minimum = distance < minimum.distance ? (StringColor, distance) : minimum;
             }
 
             return minimum.color_name;

@@ -2,7 +2,7 @@
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.PixelFormats;
 
-namespace BeadsAI.Core.Color_Recognition
+namespace BeadsAI.Core.ColorRecognition
 {
     public class CropTool
     {

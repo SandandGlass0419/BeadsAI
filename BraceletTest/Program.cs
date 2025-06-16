@@ -1,8 +1,9 @@
 ﻿using BeadsAI;
 using BeadsAI.Core;
-using BeadsAI.Core.Neural_Network;
+using BeadsAI.Core.NeuralNetwork;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Windows.Markup;
 
 namespace BraceletTest
 {
@@ -10,7 +11,7 @@ namespace BraceletTest
     {
         static void Main(string[] args)
         {
-            //NetworkTest();
+            NetworkTest();
 
             RecognitionTest();
         }
@@ -58,13 +59,13 @@ namespace BraceletTest
         {
             BraceletRecognition RecogTest = new();
 
-            var pp = RecogTest.RGBDefiner("Purple", "C:\\pics\\Purple.jpg");
-            var bl = RecogTest.RGBDefiner("Blue", "C:\\pics\\Blue.jpg");
+            const string saved_dir = BraceletRecognitionConfig.saved_dir;
 
-            var res1 = RecogTest.FindBraceletColors(BraceletRecognition.PathToImage("C:\\pics\\Purple.jpg"));
-            var res2 = RecogTest.FindBraceletColors(BraceletRecognition.PathToImage("C:\\pics\\Blue.jpg"));
+            // Configuration is done on implementation class
 
-            //Console.WriteLine($"{(double) rgb.R},{(double) rgb.G},{(double) rgb.B}");
+            var res1 = RecogTest.FindBraceletColors(saved_dir + "Red.jpg");
+            var res2 = RecogTest.FindBraceletColors(saved_dir + "Blue.jpg");
+
             Console.WriteLine($"{res1}, {res2}");
         }
     }

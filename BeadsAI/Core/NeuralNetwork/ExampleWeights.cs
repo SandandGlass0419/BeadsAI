@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeadsAI.Core.Neural_Network
+namespace BeadsAI.Core.NeuralNetwork
 {
     public static class ExampleWeights
     {
