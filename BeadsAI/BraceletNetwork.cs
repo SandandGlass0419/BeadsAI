@@ -6,7 +6,7 @@ namespace BeadsAI
     {
         public BraceletNetwork()
         {
-            Bias = (8, 8, 2); // (input,hidden,output)
+            Neurons = (8, 8, 2); // (input,hidden,output)
             MaxModelSize = 5; // 8+8+8+8+2
             InputSize = 25; // must be same as InputColor.WeightLen
 
@@ -24,14 +24,16 @@ namespace BeadsAI
 
             var chunked = Bracelet.Chunk(MaxModelSize - 1).ToArray();
 
-            AddInputLayer(InputColor.ToWeightColors(chunked[0]));
+            InputColor inputcolor = new(); HiddenColor hiddencolor = new(); OutputColor outputcolor = new();
+
+            AddInputLayer(inputcolor.ToWeightColors(chunked[0]));
 
             for (int i = 1; i < MaxModelSize - 1; i++)
             {
-                AddHiddenLayer(HiddenColor.ToWeightColors(chunked[i]));
+                AddHiddenLayer(hiddencolor.ToWeightColors(chunked[i]));
             }
 
-            AddOutputLayer(OutputColor.ToWeightColors(OutputNeurons));
+            AddOutputLayer(outputcolor.ToWeightColors(OutputNeurons));
         }
 
         public float[] RunModel(float[] input)

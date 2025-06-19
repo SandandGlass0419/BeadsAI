@@ -7,7 +7,7 @@ namespace BeadsAI.Core.NeuralNetwork
         public static int WeightLen { get; protected set; }
         public static Dictionary<string, float[]> Weights { get; protected set; } = new();
 
-        public static WeightColor[] ToWeightColors(string[] string_color)
+        public WeightColor[] ToWeightColors(string[] string_color)
         {
             WeightColor[] color_array = Array.Empty<WeightColor>();
 
@@ -41,7 +41,7 @@ namespace BeadsAI.Core.NeuralNetwork
 
     public class NetworkConfig : NetworkCore
     {
-        public static (int Input,int Hidden, int Output) Bias { get; protected set; }
+        public static (int Input,int Hidden, int Output) Neurons { get; protected set; }
         public static int MaxModelSize { get; protected set; }
         public static int InputSize { get; protected set; } // must be same as InputColor.WeightLen
 
@@ -58,7 +58,7 @@ namespace BeadsAI.Core.NeuralNetwork
             if (Model.Count != 0) // check if Layer will be the first element of Model
             { return false; }
 
-            if (Layer.Length != Bias.Input) // check if length of Layer is correct
+            if (Layer.Length != Neurons.Input) // check if length of Layer is correct
             { return false; }
 
             // length of Weight is checked on ColorMetRequirements, so didnt implement
@@ -72,7 +72,7 @@ namespace BeadsAI.Core.NeuralNetwork
             if (!(0 < Model.Count || Model.Count < MaxModelSize - 1)) // check if its not first or last
             { return false; }
 
-            if (Layer.Length != Bias.Hidden)
+            if (Layer.Length != Neurons.Hidden)
             { return false; }
 
             return true;
@@ -83,7 +83,7 @@ namespace BeadsAI.Core.NeuralNetwork
             if (Model.Count != MaxModelSize - 1)
             { return false; }
 
-            if (Layer.Length != Bias.Output)
+            if (Layer.Length != Neurons.Output)
             { return false; }
 
             return true;
