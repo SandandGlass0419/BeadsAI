@@ -1,6 +1,7 @@
-﻿using BeadsAI.Core.ColorRecognition;
-using SixLabors.ImageSharp.PixelFormats;
+﻿using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.ColorSpaces;
+using BeadsAI.Core.ColorRecognition;
 
 namespace BeadsAI
 {
@@ -11,28 +12,28 @@ namespace BeadsAI
          
         public const string saved_dir = "C:\\pics\\";
 
-        public static Dictionary<string, Rgba32> strRGBMap => new()
+        public static Dictionary<string, CieLab> strLabMap => new()
         {
-            {"Red",RGBDefiner(saved_dir + "Red.jpg") }
+            {"Red",LabDefiner(saved_dir + "Red.jpg") }
         };
 
-        public static Rgba32 RGBDefiner(string Path)
+        public static CieLab LabDefiner(string Path)
         {
             Image<Rgba32> image = BraceletRecognition.PathToImage(Path);
 
             image = CropTool.CropImage(image, Bounds);
 
-            Rgba32 new_rgb = BraceletRecognition.GetAverageRGB(image);
+            Rgba32 new_rgba32 = BraceletRecognition.GetAverageRGB(image);
 
             image.Dispose();
 
-            return new_rgb;
+            return BraceletRecognition.ToCieLab(new_rgba32);
         }
     }
 
     public class BraceletRecognition : RGBFindCore
     {
-        public override Dictionary<string, Rgba32> strRGBMap { get; protected set; } = BraceletRecognitionConfig.strRGBMap;
+        public override Dictionary<string, CieLab> strLabMap { get; protected set; } = BraceletRecognitionConfig.strLabMap;
 
         public string[] FindBraceletColors(string Path)
         {
@@ -43,7 +44,7 @@ namespace BeadsAI
             foreach (var element_image in images)
             {
                 Rgba32 averageRGB = GetAverageRGB(element_image);
-                BraceletColors = [.. BraceletColors, FindCloseColor(averageRGB)];
+                BraceletColors = [.. BraceletColors, FindCloseColor(ToCieLab(averageRGB))];
             }
             
             return BraceletColors;

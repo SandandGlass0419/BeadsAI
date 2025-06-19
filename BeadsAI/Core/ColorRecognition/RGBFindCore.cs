@@ -1,7 +1,7 @@
 ﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.ColorSpaces;
+using SixLabors.ImageSharp.ColorSpaces.Conversion;
 using SixLabors.ImageSharp.PixelFormats;
-using BeadsAI;
 
 namespace BeadsAI.Core.ColorRecognition
 {
@@ -9,16 +9,25 @@ namespace BeadsAI.Core.ColorRecognition
     {
         public static abstract Rectangle Bounds { get; }
         public static abstract int Parts { get; }
-        public static Dictionary<string, Rgba32> strRGBMap { get; }
+        public static abstract Dictionary<string, CieLab> strLabMap { get; }
     }
 
     public abstract class RGBFindCore
     {
-        public abstract Dictionary<string,Rgba32> strRGBMap { get; protected set; }
+        public abstract Dictionary<string, CieLab> strLabMap { get; protected set; }
 
         public static Image<Rgba32> PathToImage(string path)
         {
             return Image.Load<Rgba32>(path);
+        }
+
+        public static CieLab ToCieLab(Rgba32 rgba32)
+        {
+            ColorSpaceConverter converter = new();
+
+            var rgb = new Rgb(rgba32.R / 255f, rgba32.G / 255f, rgba32.G / 255f);
+
+            return converter.ToCieLab(rgb);
         }
 
         public static Rgba32 GetAverageRGB(Image<Rgba32> image)
@@ -83,15 +92,15 @@ namespace BeadsAI.Core.ColorRecognition
             return blue;
         }
 
-        public string FindCloseColor(Rgba32 rgb)
+        public string FindCloseColor(CieLab lab)
         {
-            (string color_name, double distance) minimum = ("None", float.MaxValue);
+            (string color_name, double distance) minimum = ("None", double.MaxValue);
 
-            foreach (string StringColor in strRGBMap.Keys) // candidate color
+            foreach (string StringColor in strLabMap.Keys) // candidate color
             {
-                double distance = Math.Sqrt(Math.Pow(strRGBMap[StringColor].R - rgb.R,2) +
-                                            Math.Pow(strRGBMap[StringColor].G - rgb.G,2) +
-                                            Math.Pow(strRGBMap[StringColor].B - rgb.B,2));
+                double distance = Math.Sqrt(Math.Pow(strLabMap[StringColor].L - lab.L,2) +
+                                            Math.Pow(strLabMap[StringColor].A - lab.A,2) +
+                                            Math.Pow(strLabMap[StringColor].B - lab.B,2));
 
                 minimum = distance < minimum.distance ? (StringColor, distance) : minimum;
             }

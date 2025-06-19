@@ -2,23 +2,59 @@
 using TorchSharp.Modules;
 using static TorchSharp.torch;
 using static TorchSharp.torch.nn.functional;
-using System.Linq;
 
 namespace BeadsAI.Core.NeuralNetwork
 {
+    public sealed class WeightColor
+    {
+        public string ColorName { get; private set; }
+        public float[] Weights { get; private set; }
+
+        public WeightColor(string ColorName, float[] Weights)
+        {
+            this.ColorName = ColorName;
+            this.Weights = Weights;
+        }
+
+        public static WeightColor Create(string ColorName, float[] Weights)
+        {
+            return new WeightColor(ColorName, Weights);
+        }
+    }
+
     public abstract class NetworkCore : nn.Module
     {
         public ModuleList<Linear> Model { get; protected set; } = new();
 
         public NetworkCore() : base("NetworkCore") { }
 
-        public void AddLayer(WeightColor[] Layer)
+        public void AddInputLayer(WeightColor[] Layer)
         {
-            LayerMetRequirments(Layer);
+            InputLayerMetRequirments(Layer);
 
             Model.Add(CreateLinear(Layer));
             RegisterComponents();
         }
+
+        public void AddHiddenLayer(WeightColor[] Layer)
+        {
+            HiddenLayerMetRequirments(Layer);
+
+            Model.Add(CreateLinear(Layer));
+            RegisterComponents();
+        }
+
+        public void AddOutputLayer(WeightColor[] Layer)
+        {
+            OutputLayerMetRequirments(Layer);
+
+            Model.Add(CreateLinear(Layer));
+            RegisterComponents();
+        }
+
+        protected abstract bool InputLayerMetRequirments(WeightColor[] Layer);
+        protected abstract bool HiddenLayerMetRequirments(WeightColor[] Layer);
+        protected abstract bool OutputLayerMetRequirments(WeightColor[] Layer);
 
         // sets weight, bias using SetWeights, SetBias. Weights use color definition, so is implemented
         // biases are set by user later, so method is set abstract
@@ -38,7 +74,11 @@ namespace BeadsAI.Core.NeuralNetwork
             return newLinear;
         }
 
-        protected abstract bool LayerMetRequirments(WeightColor[] Layer);
+        public void ClearModel()
+        {
+            Model.Clear();
+            RegisterComponents();
+        }
 
         private Tensor SetWeights(WeightColor[] Layer,long length,long amount)
         {
@@ -54,7 +94,9 @@ namespace BeadsAI.Core.NeuralNetwork
 
         protected abstract Tensor SetBias(WeightColor[] Layer);
 
-        public Tensor Run(Tensor Input)
+        protected abstract bool InputMetRequirments(Tensor Input);
+
+        protected Tensor Run(Tensor Input)
         {
             InputMetRequirments(Input);
 
@@ -79,8 +121,11 @@ namespace BeadsAI.Core.NeuralNetwork
             return RecursionRun(LayerOutput, index + 1);
         }
 
-        protected abstract bool InputMetRequirments(Tensor Input);
-
         public abstract Tensor ToTensor(float[] input);
+
+        public float[] ToArray(Tensor input)
+        {
+            return input.data<float>().ToArray();
+        }
     }
 }
