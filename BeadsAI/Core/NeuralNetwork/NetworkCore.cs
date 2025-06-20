@@ -28,7 +28,7 @@ namespace BeadsAI.Core.NeuralNetwork
 
         public NetworkCore() : base("NetworkCore") { }
 
-        public void AddInputLayer(WeightColor[] Layer)
+        protected void AddInputLayer(WeightColor[] Layer)
         {
             InputLayerMetRequirments(Layer);
 
@@ -36,7 +36,7 @@ namespace BeadsAI.Core.NeuralNetwork
             RegisterComponents();
         }
 
-        public void AddHiddenLayer(WeightColor[] Layer)
+        protected void AddHiddenLayer(WeightColor[] Layer)
         {
             HiddenLayerMetRequirments(Layer);
 
@@ -44,7 +44,7 @@ namespace BeadsAI.Core.NeuralNetwork
             RegisterComponents();
         }
 
-        public void AddOutputLayer(WeightColor[] Layer)
+        protected void AddOutputLayer(WeightColor[] Layer)
         {
             OutputLayerMetRequirments(Layer);
 
@@ -115,10 +115,15 @@ namespace BeadsAI.Core.NeuralNetwork
 
             LayerOutput = relu(Model[index].forward(LayerOutput));
 
-            var debug = LayerOutput.data<float>().ToArray();
-            Console.WriteLine(string.Join(',', debug));
+            // RunTest(LayerOutput);
 
             return RecursionRun(LayerOutput, index + 1);
+        }
+
+        private void RunTest(Tensor LayerOutput)
+        {
+            var debug = LayerOutput.data<float>().ToArray();
+            Console.WriteLine(string.Join(',', debug));
         }
 
         public abstract Tensor ToTensor(float[] input);

@@ -15,3 +15,7 @@ black = -0.5
 
 RGB values are float
 0 ~ 1
+
+
+fix Neurons - check!
+

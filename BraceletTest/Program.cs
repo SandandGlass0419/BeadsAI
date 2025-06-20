@@ -8,12 +8,21 @@ namespace BraceletTest
         {
             NetworkTest();
 
-            RecognitionTest();
+            //RecognitionTest();
         }
 
         static void NetworkTest()
         {
+            BraceletNetwork NetworkTest = new();
 
+            NetworkTest.AddLayers(["Red","Blue","Blue","Green","Red","Blue","Green","Blue",
+                                   "Red","Red","Blue","Red","Green","Blue","Red","Red",
+                                   "Blue","Green","Red","Red","Green","Blue","Blue","Green",
+                                   "Red","Green","Blue","Blue","Red","Green","Green","Blue"]);
+
+            var result = NetworkTest.RunModel([0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0]);
+
+            Console.WriteLine(string.Join(',',result));
         }
 
         static void RecognitionTest()
