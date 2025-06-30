@@ -52,10 +52,18 @@ namespace BeadsAI.Core.NeuralNetwork
             return true;
         }
 
-        protected override bool InputMetRequirments(torch.Tensor Input) // Input for run
+        protected override bool InputMetRequirments(torch.Tensor input) // Input for run
         {
-            if (Input.size(1) != InputSize)
-            { throw new ArgumentException($"\"{nameof(Input)}\" didn't have required size."); }
+            if (input.size(1) != InputSize)
+            { throw new ArgumentException($"\"{nameof(input)}\" didn't have required size."); }
+
+            return true;
+        }
+
+        private bool InputMetRequirments(float[] input) // InputMetRequirments for ToTensor
+        {
+            if (input.Length != InputSize)
+            { throw new ArgumentException($"\"{nameof(input)}\" didn't have required size."); }
 
             return true;
         }
@@ -70,6 +78,8 @@ namespace BeadsAI.Core.NeuralNetwork
 
         public override torch.Tensor ToTensor(float[] input)
         {
+            InputMetRequirments(input);
+
             return torch.tensor(input).reshape(1, (int)InputSize);
         }
     }
