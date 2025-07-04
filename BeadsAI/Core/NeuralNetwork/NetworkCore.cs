@@ -1,4 +1,5 @@
-﻿using TorchSharp;
+﻿using System.Diagnostics;
+using TorchSharp;
 using TorchSharp.Modules;
 using static TorchSharp.torch;
 using static TorchSharp.torch.nn.functional;
@@ -123,7 +124,7 @@ namespace BeadsAI.Core.NeuralNetwork
         private void RunTest(Tensor LayerOutput)
         {
             var debug = LayerOutput.data<float>().ToArray();
-            Console.WriteLine(string.Join(',', debug));
+            Debug.WriteLine(string.Join(',', debug));
         }
 
         public abstract Tensor ToTensor(float[] input);
