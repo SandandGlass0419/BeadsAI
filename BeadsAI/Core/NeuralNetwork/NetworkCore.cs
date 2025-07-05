@@ -103,9 +103,6 @@ namespace BeadsAI.Core.NeuralNetwork
 
             Tensor result = RecursionRun(Input,0);
 
-            var debug = result.data<float>().ToArray();
-            Console.WriteLine(string.Join(',',debug));
-
             return torch.softmax(result, 1);
         }
 

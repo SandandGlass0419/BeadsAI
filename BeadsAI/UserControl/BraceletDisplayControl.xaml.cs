@@ -6,17 +6,34 @@ namespace BeadsAI.UserControl
 {
     public partial class BraceletDisplayControl
     {
-        public UIBead[] Bracelet {  get; protected set; } = Array.Empty<UIBead>();
-
         public BraceletDisplayControl()
         {
             InitializeComponent();
 
-            string[] strBracelet = ["Red", "Green", "Blue", "Red"];
-            Bracelet = UIBead.ToBeads(strBracelet);
+            MessageBus.strBraceletChanged += strBraceletUpdateHandler;
 
-            AddBracelet(Bracelet);
+            strBraceletUpdateHandler(["Red", "Green", "Blue", "SkyBlue"]);
         }
+
+        private string[] strbracelet = Array.Empty <string>();
+
+        public string[] strBracelet
+        {
+            get { return strbracelet; }
+            set // when setted by itself
+            {
+                strbracelet = value;
+                MessageBus.UpdatestrBracelet(value);
+            }
+        }
+
+        private void strBraceletUpdateHandler(string[] strBracelet) // when setted by others
+        {
+            strbracelet = strBracelet; // use private field to avoid stack overflow by messagebus
+
+            AddBracelet(UIBead.ToBeads(strBracelet));
+        }
+
 
         private Button CreateCustombtn(UIBead bead)
         {
@@ -32,8 +49,6 @@ namespace BeadsAI.UserControl
                 Background = bead.Color,
             };
 
-            
-
             beadbtn.Click += Beadbtn_Click;
 
             return beadbtn;
@@ -41,6 +56,8 @@ namespace BeadsAI.UserControl
 
         private void AddBracelet(UIBead[] Bracelet)
         {
+            BraceletDisplay.Children.Clear();
+
             foreach (UIBead bead in Bracelet)
             {
                 var btn = CreateCustombtn(bead);
@@ -52,6 +69,9 @@ namespace BeadsAI.UserControl
         private void EditBracelet(UIBead bead)
         {
             var btn = CreateCustombtn(bead);
+
+            strbracelet[bead.Position] = bead.ColorName;
+            strBracelet = strbracelet; // invoke setter
 
             BraceletDisplay.Children.RemoveAt(bead.Position);
             BraceletDisplay.Children.Insert(bead.Position, btn);
@@ -100,14 +120,7 @@ namespace BeadsAI.UserControl
 
         public static UIBead[] ToBeads(string[] strBracelet)
         {
-            UIBead[] Bracelet = new UIBead[strBracelet.Length];
-
-            for (int i = 0;i < strBracelet.Length;i++)
-            {
-                Bracelet[i] = new UIBead(i,strBracelet[i]);
-            }
-
-            return Bracelet;
+            return strBracelet.Select((name,i) => new UIBead(i,name)).ToArray();
         }
 
         private Color ToColor(string ColorName)
@@ -125,6 +138,11 @@ namespace BeadsAI.UserControl
             }
 
             return color;
+        }
+
+        public static string[] ToArray(UIBead[] Bracelet)
+        {
+            return Bracelet.Select(bead => bead.ColorName).ToArray();
         }
     }
 }
