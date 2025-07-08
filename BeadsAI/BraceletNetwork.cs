@@ -1,4 +1,5 @@
 ﻿using BeadsAI.Core.NeuralNetwork;
+using System.Diagnostics;
 using System.IO;
 
 namespace BeadsAI
@@ -117,7 +118,7 @@ namespace BeadsAI
 
         public int score = 0;
 
-        private (string folder, string file) path = ("C:\\BeadsLog\\", "Log.txt");
+        private static (string folder, string file) path = ("C:\\BeadsLog\\", "Log.txt");
 
         public void Score(float[] result,int expected)
         {
@@ -134,12 +135,19 @@ namespace BeadsAI
             File.AppendAllText(path.folder + path.file, Environment.NewLine);
         }
 
-        private void AddDir((string folder,string file) path)
+        public static void OpenLogs()
+        {
+            AddDir(path);
+
+            Process.Start("notepad.exe",path.folder + path.file);
+        }
+
+        private static void AddDir((string folder,string file) path)
         {
             if (!File.Exists(path.folder + path.file))
             {
                 Directory.CreateDirectory(path.folder);
-                File.Create(path.folder + path.file);
+                File.WriteAllText(path.folder + path.file, "");
             }
         }
     }

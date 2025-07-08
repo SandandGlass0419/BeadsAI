@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace BeadsAI.UserControl
+namespace BeadsAI.UserControls
 {
     public partial class ColorSelectWindow : Window
     {
@@ -15,7 +15,7 @@ namespace BeadsAI.UserControl
             ColorSelector.SelectedItem = CurrentBead.ColorName;
         }
 
-        public static List<string> ColorList { get; } = UIBead.strColorMap.Keys.ToList();
+        public static List<string> ColorList { get; } = UIBead.StrColorMap.Keys.ToList();
         public UIBead CurrentBead { get; protected set; }
 
         private void OK_btn_Click(object sender, RoutedEventArgs e)

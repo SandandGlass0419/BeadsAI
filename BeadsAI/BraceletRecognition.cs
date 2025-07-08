@@ -14,10 +14,11 @@ namespace BeadsAI
 
         public static Dictionary<string, CieLab> strLabMap => new()
         {
-            {"Red",LabDefiner(saved_dir + "Red.jpg") }
+            {"Red" , LabDefiner(saved_dir + "Red.jpg") },
+            {"Purple" , LabDefiner(saved_dir + "Purple.jpg") }
         };
 
-        public static CieLab LabDefiner(string Path)
+        private static CieLab LabDefiner(string Path)
         {
             Image<Rgba32> image = BraceletRecognition.PathToImage(Path);
 

@@ -2,36 +2,36 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace BeadsAI.UserControl
+namespace BeadsAI.UserControls
 {
-    public partial class BraceletDisplayControl
+    public partial class BraceletDisplayControl : UserControl
     {
         public BraceletDisplayControl()
         {
             InitializeComponent();
 
-            MessageBus.strBraceletChanged += strBraceletUpdateHandler;
+            MessageBus.StrBraceletChanged += StrBraceletUpdateHandler;
 
-            strBraceletUpdateHandler(["Red", "Green", "Blue", "SkyBlue"]);
+            StrBraceletUpdateHandler(["Red", "Green", "Blue", "SkyBlue"]); // comment after making toolbar
         }
 
         private string[] strbracelet = Array.Empty <string>();
 
-        public string[] strBracelet
+        public string[] StrBracelet
         {
             get { return strbracelet; }
             set // when setted by itself
             {
                 strbracelet = value;
-                MessageBus.UpdatestrBracelet(value);
+                MessageBus.UpdateStrBracelet(value);
             }
         }
 
-        private void strBraceletUpdateHandler(string[] strBracelet) // when setted by others
+        private void StrBraceletUpdateHandler(string[] strbracelet) // when setted by others
         {
-            strbracelet = strBracelet; // use private field to avoid stack overflow by messagebus
+            this.strbracelet = strbracelet; // use private field to avoid stack overflow by messagebus
 
-            AddBracelet(UIBead.ToBeads(strBracelet));
+            AddBracelet(UIBead.ToBeads(StrBracelet));
         }
 
 
@@ -71,7 +71,7 @@ namespace BeadsAI.UserControl
             var btn = CreateCustombtn(bead);
 
             strbracelet[bead.Position] = bead.ColorName;
-            strBracelet = strbracelet; // invoke setter
+            StrBracelet = strbracelet; // invoke setter
 
             BraceletDisplay.Children.RemoveAt(bead.Position);
             BraceletDisplay.Children.Insert(bead.Position, btn);
@@ -110,12 +110,13 @@ namespace BeadsAI.UserControl
             Color = new(ToColor(beadColorName));
         }
 
-        public static Dictionary<string, byte[]> strColorMap { get; } = new()
+        public static Dictionary<string, byte[]> StrColorMap { get; } = new()
         {
-            {"Red",[255,0,0] },
-            {"Green",[0,255,0] },
-            {"Blue",[0,0,255] },
-            {"SkyBlue",[135,206,235] }
+            { "Red" , [255,0,0] },
+            { "Green" , [0,255,0] },
+            { "Blue" , [0,0,255] },
+            { "SkyBlue" , [135,206,235] },
+            { "Purple" ,  [180,150,205]}
         };
 
         public static UIBead[] ToBeads(string[] strBracelet)
@@ -129,7 +130,7 @@ namespace BeadsAI.UserControl
 
             byte[]? rgb = [0, 0, 0];
 
-            if (strColorMap.TryGetValue(ColorName, out rgb))
+            if (StrColorMap.TryGetValue(ColorName, out rgb))
             {
                 color.A = 255;
                 color.R = rgb[0];

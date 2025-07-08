@@ -2,6 +2,7 @@
 using SixLabors.ImageSharp.ColorSpaces;
 using SixLabors.ImageSharp.ColorSpaces.Conversion;
 using SixLabors.ImageSharp.PixelFormats;
+using System.IO;
 
 namespace BeadsAI.Core.ColorRecognition
 {
@@ -18,6 +19,9 @@ namespace BeadsAI.Core.ColorRecognition
 
         public static Image<Rgba32> PathToImage(string path)
         {
+            if (!File.Exists(path))
+            { ExceptionThrower.Throw($"File: {path} does not exist."); }
+
             return Image.Load<Rgba32>(path);
         }
 
@@ -25,7 +29,7 @@ namespace BeadsAI.Core.ColorRecognition
         {
             ColorSpaceConverter converter = new();
 
-            var rgb = new Rgb(rgba32.R / 255f, rgba32.G / 255f, rgba32.G / 255f);
+            var rgb = new Rgb(rgba32.R / 255f, rgba32.G / 255f, rgba32.B / 255f);
 
             return converter.ToCieLab(rgb);
         }

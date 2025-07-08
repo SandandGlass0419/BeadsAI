@@ -16,9 +16,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\Cross.png" />
+    <None Remove="Images\Face.png" />
+    <None Remove="Images\Heart.png" />
+    <None Remove="Images\House.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.9" />
     <PackageReference Include="TorchSharp" Version="0.105.0" />
     <PackageReference Include="TorchSharp-cpu" Version="0.105.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Cross.png" />
+    <Resource Include="Images\Face.png" />
+    <Resource Include="Images\Heart.png" />
+    <Resource Include="Images\House.png" />
   </ItemGroup>
 
 </Project>

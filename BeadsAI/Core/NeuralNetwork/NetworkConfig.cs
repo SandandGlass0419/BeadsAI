@@ -19,10 +19,10 @@ namespace BeadsAI.Core.NeuralNetwork
         protected override bool InputLayerMetRequirments(WeightColor[] Layer)
         {
             if (Model.Count != 0) // check if Layer will be the first element of Model
-            { throw new Exception($"\"{nameof(Model)}\" did not have required length."); }
+            { ExceptionThrower.Throw($"\"{nameof(Model)}\" did not have required length."); }
 
             if (Layer.Length != Neurons.General) // check if length of Layer is correct
-            { throw new Exception($"\"{nameof(Layer)}\" did not have required length."); }
+            { ExceptionThrower.Throw($"\"{nameof(Layer)}\" did not have required length."); }
 
             // length of Weight is checked on ColorMetRequirements, so didnt implement
             // same for other methods
@@ -33,10 +33,10 @@ namespace BeadsAI.Core.NeuralNetwork
         protected override bool HiddenLayerMetRequirments(WeightColor[] Layer)
         {
             if (!(0 < Model.Count || Model.Count < MaxModelSize - 1)) // check if its not first or last
-            { throw new Exception($"\"{nameof(Model)}\" did not have required length."); }
+            { ExceptionThrower.Throw($"\"{nameof(Model)}\" did not have required length."); }
 
             if (Layer.Length != Neurons.General)
-            { throw new Exception($"\"{nameof(Layer)}\" did not have required length."); }
+            { ExceptionThrower.Throw($"\"{nameof(Layer)}\" did not have required length."); }
 
             return true;
         }
@@ -44,10 +44,10 @@ namespace BeadsAI.Core.NeuralNetwork
         protected override bool OutputLayerMetRequirments(WeightColor[] Layer)
         {
             if (Model.Count != MaxModelSize - 1)
-            { throw new Exception($"\"{nameof(Model)}\" did not have required length."); }
+            { ExceptionThrower.Throw($"\"{nameof(Model)}\" did not have required length."); }
 
             if (Layer.Length != Neurons.Output)
-            { throw new Exception($"\"{nameof(Layer)}\" did not have required length."); }
+            { ExceptionThrower.Throw($"\"{nameof(Layer)}\" did not have required length."); }
 
             return true;
         }
@@ -55,7 +55,7 @@ namespace BeadsAI.Core.NeuralNetwork
         protected override bool InputMetRequirments(torch.Tensor input) // Input for run
         {
             if (input.size(1) != InputSize)
-            { throw new ArgumentException($"\"{nameof(input)}\" didn't have required size."); }
+            { ExceptionThrower.Throw($"\"{nameof(input)}\" didn't have required size."); }
 
             return true;
         }
@@ -63,7 +63,7 @@ namespace BeadsAI.Core.NeuralNetwork
         private bool InputMetRequirments(float[] input) // InputMetRequirments for ToTensor
         {
             if (input.Length != InputSize)
-            { throw new ArgumentException($"\"{nameof(input)}\" didn't have required size."); }
+            { ExceptionThrower.Throw($"\"{nameof(input)}\" didn't have required size."); }
 
             return true;
         }
@@ -71,7 +71,7 @@ namespace BeadsAI.Core.NeuralNetwork
         protected bool BraceletMetRequirments(string[] Bracelet)
         {
             if (Bracelet.Length != (MaxModelSize - 1) * Neurons.General)
-            { throw new ArgumentException($"\"{nameof(Bracelet)}\" did not have required length."); }
+            { ExceptionThrower.Throw($"\"{nameof(Bracelet)}\" did not have required length."); }
 
             return true;
         }
@@ -101,7 +101,7 @@ namespace BeadsAI.Core.NeuralNetwork
                 }
 
                 else
-                { throw new KeyNotFoundException($"\"{color}\" was not found as key for {nameof(string_color)}."); }
+                { ExceptionThrower.Throw($"\"{color}\" was not found as key for {nameof(string_color)}."); }
             }
 
             return color_array;
@@ -112,7 +112,7 @@ namespace BeadsAI.Core.NeuralNetwork
             foreach (var weight in Weights.Values)
             {
                 if (weight.Length != WeightLen)
-                { throw new ArgumentException($"\"{nameof(weight)}\" Doesn't have specified length."); }
+                { ExceptionThrower.Throw($"\"{nameof(weight)}\" Doesn't have specified length."); }
             }
 
             return true;

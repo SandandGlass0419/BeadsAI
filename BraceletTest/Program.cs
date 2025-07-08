@@ -31,6 +31,8 @@ namespace BraceletTest
 
             const string saved_dir = BraceletRecognitionConfig.saved_dir;
 
+            //RecogTest.FindBraceletColors(saved_dir + "ao.jpg"); Exception test
+
             // Configuration is done on implementation class
 
 
