@@ -10,12 +10,12 @@ namespace BeadsAI.Core.ColorRecognition
     {
         public static abstract Rectangle Bounds { get; }
         public static abstract int Parts { get; }
-        public static abstract Dictionary<string, CieLab> strLabMap { get; }
+        public static abstract Dictionary<string, CieLab> StrLabMap { get; }
     }
 
     public abstract class RGBFindCore
     {
-        public abstract Dictionary<string, CieLab> strLabMap { get; protected set; }
+        public abstract Dictionary<string, CieLab> StrLabMap { get; protected set; }
 
         public static Image<Rgba32> PathToImage(string path)
         {
@@ -100,11 +100,11 @@ namespace BeadsAI.Core.ColorRecognition
         {
             (string color_name, double distance) minimum = ("None", double.MaxValue);
 
-            foreach (string StringColor in strLabMap.Keys) // candidate color
+            foreach (string StringColor in StrLabMap.Keys) // candidate color
             {
-                double distance = Math.Sqrt(Math.Pow(strLabMap[StringColor].L - lab.L,2) +
-                                            Math.Pow(strLabMap[StringColor].A - lab.A,2) +
-                                            Math.Pow(strLabMap[StringColor].B - lab.B,2));
+                double distance = Math.Sqrt(Math.Pow(StrLabMap[StringColor].L - lab.L,2) +
+                                            Math.Pow(StrLabMap[StringColor].A - lab.A,2) +
+                                            Math.Pow(StrLabMap[StringColor].B - lab.B,2));
 
                 minimum = distance < minimum.distance ? (StringColor, distance) : minimum;
             }

@@ -12,7 +12,7 @@ namespace BeadsAI
          
         public const string saved_dir = "C:\\pics\\";
 
-        public static Dictionary<string, CieLab> strLabMap => new()
+        public static Dictionary<string, CieLab> StrLabMap => new()
         {
             {"Red" , LabDefiner(saved_dir + "Red.jpg") },
             {"Purple" , LabDefiner(saved_dir + "Purple.jpg") }
@@ -34,7 +34,7 @@ namespace BeadsAI
 
     public class BraceletRecognition : RGBFindCore
     {
-        public override Dictionary<string, CieLab> strLabMap { get; protected set; } = BraceletRecognitionConfig.strLabMap;
+        public override Dictionary<string, CieLab> StrLabMap { get; protected set; } = BraceletRecognitionConfig.StrLabMap;
 
         public string[] FindBraceletColors(string Path)
         {

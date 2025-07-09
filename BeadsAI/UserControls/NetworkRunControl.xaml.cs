@@ -30,6 +30,8 @@ namespace BeadsAI.UserControls
             }
         }
 
+        public float[] Input { get; protected set; } = Array.Empty<float>();
+
         private float[] output = new float[4];
 
         public float[] Output
@@ -49,6 +51,7 @@ namespace BeadsAI.UserControls
 
         private void InputUpdateHandler(string input)
         {
+            Input = InputSelectControl.StrInputmap[input];
             InputFormated = $"Input: {input}";
         }
 
