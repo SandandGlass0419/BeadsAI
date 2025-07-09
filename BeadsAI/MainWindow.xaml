@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BeadsAI"
         xmlns:uc="clr-namespace:BeadsAI.UserControls"
         mc:Ignorable="d"
-        Title="BeadsAI" Height="860" Width="1400" WindowState="Maximized">
+        Title="BeadsAI" Height="860" Width="1600" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -41,10 +41,10 @@
                 <uc:BraceletDisplayControl Grid.Row="0"/>
 
                 <UniformGrid Columns="2" Rows="2" Grid.Row="1">
-                    <uc:OutputDisplayControl Tag="0"/>
-                    <uc:OutputDisplayControl Tag="1"/>
-                    <uc:OutputDisplayControl Tag="2"/>
-                    <uc:OutputDisplayControl Tag="3"/>
+                    <uc:OutputDisplayControl x:Name="Cross" Tag="0"/>
+                    <uc:OutputDisplayControl x:Name="Face" Tag="1"/>
+                    <uc:OutputDisplayControl x:Name="Heart" Tag="2"/>
+                    <uc:OutputDisplayControl x:Name="House" Tag="3"/>
                 </UniformGrid>
             </Grid>
         </Grid>

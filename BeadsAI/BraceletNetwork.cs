@@ -8,11 +8,11 @@ namespace BeadsAI
     {
         public BraceletNetwork()
         {
-            Neurons = (8, 2); // (General,Output), General = Input, Hidden
-            MaxModelSize = 5; // 8+8+8+8+2
+            Neurons = (8, 4); // (General,Output), General = Input, Hidden
+            MaxModelSize = 5; // 8+8+8+8+4, 32 length bracelet
             InputSize = 25; // must be same as InputColor.WeightLen
 
-            OutputNeurons = ["Out1","Out2"]; // Length must be same as Neurons.Output
+            OutputNeurons = ["Out1","Out2","Out3","Out4"]; // Length must be same as Neurons.Output
         }
 
         public void AddLayers(string[] Bracelet)
@@ -46,7 +46,7 @@ namespace BeadsAI
             return ToArray(Run(ToTensor(input)));
         }
 
-        public void Evaluate(string[] Bracelet)
+        public void EvaluateModel(string[] Bracelet)
         {
             Evaluator eval = new();
 
@@ -102,7 +102,9 @@ namespace BeadsAI
             Weights = new()
             {
                 {"Out1", ExampleWeights.OneValue(WeightLen,0.5f) },
-                {"Out2", ExampleWeights.OneValue(WeightLen,0.2f) }
+                {"Out2", ExampleWeights.OneValue(WeightLen,0.2f) },
+                {"Out3", ExampleWeights.OneValue(WeightLen,-0.4f) },
+                {"Out4", ExampleWeights.OneValue(WeightLen,-0.1f) }
             };
 
             ColorMetRequirements();
@@ -130,8 +132,8 @@ namespace BeadsAI
         {
             AddDir(path);
 
-            File.AppendAllText(path.folder + path.file, string.Join(',',Bracelet) + Environment.NewLine);
-            File.AppendAllText(path.folder + path.file, score.ToString() + Environment.NewLine);
+            File.AppendAllText(path.folder + path.file, $"Bracelet: {string.Join(',',Bracelet)}" + Environment.NewLine);
+            File.AppendAllText(path.folder + path.file, $"Score: {score}" + Environment.NewLine);
             File.AppendAllText(path.folder + path.file, Environment.NewLine);
         }
 

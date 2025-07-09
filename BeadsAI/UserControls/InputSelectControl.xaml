@@ -11,7 +11,7 @@
             <TabItem Header="Manual">
                 <ComboBox Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"
                           ItemsSource="{Binding StrInputs}"
-                          SelectedItem="{Binding Input}"/>
+                          SelectedItem="{Binding StrInput}"/>
             </TabItem>
 
             <TabItem Header="Camera">

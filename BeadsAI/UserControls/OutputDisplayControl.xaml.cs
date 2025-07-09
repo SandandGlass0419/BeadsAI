@@ -50,15 +50,15 @@ namespace BeadsAI.UserControls
             }
         }
 
-        private float output;
+        private float outputpercent;
 
-        public float Output
+        public float OutputPercent
         {
-            get { return output; }
+            get { return outputpercent; }
             set 
             { 
-                output = value;
-                OnPropertyChanged(nameof(Output));
+                outputpercent = value;
+                OnPropertyChanged(nameof(OutputPercent));
             }
         }
 
@@ -69,8 +69,8 @@ namespace BeadsAI.UserControls
 
         public void UpdateOutputHandler(float[] output)
         {
-            Output = (float) Math.Round((double) output[thisindex], 1);
-            FormatedOutput = $"Class {thisindex + 1}: {Output}%";
+            OutputPercent = (float) Math.Round((double)output[thisindex] * 100, 1);
+            FormatedOutput = $"{Name}: {OutputPercent}%";
         }
     }
 }

@@ -6,13 +6,17 @@ namespace BeadsAI.UserControls
 {
     public partial class BraceletDisplayControl : UserControl
     {
+        private static readonly string[] InitStrBracelet = Enumerable.Repeat("Red", 32).ToArray();  // set to 32 to prevent exception
+
         public BraceletDisplayControl()
         {
             InitializeComponent();
 
             MessageBus.StrBraceletChanged += StrBraceletUpdateHandler;
 
-            StrBraceletUpdateHandler(["Red", "Green", "Blue", "SkyBlue"]); // comment after making toolbar
+            //SetStrBracelet(InitStrBracelet);
+
+            StrBracelet = InitStrBracelet;
         }
 
         private string[] strbracelet = Array.Empty <string>();
@@ -27,13 +31,18 @@ namespace BeadsAI.UserControls
             }
         }
 
+        private void SetStrBracelet(string[] strbracelet)
+        {
+            StrBraceletUpdateHandler(strbracelet);
+            StrBracelet = strbracelet;
+        }
+
         private void StrBraceletUpdateHandler(string[] strbracelet) // when setted by others
         {
-            this.strbracelet = strbracelet; // use private field to avoid stack overflow by messagebus
+            this.strbracelet = strbracelet;
 
             AddBracelet(UIBead.ToBeads(StrBracelet));
         }
-
 
         private Button CreateCustombtn(UIBead bead)
         {

@@ -13,9 +13,9 @@
                        Text="{Binding InputFormated, UpdateSourceTrigger=PropertyChanged}"/>
                 
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Re-run Test" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5"
+                    <Button x:Name="btn_ReRun" Content="Re-run Test" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5"
                         />
-                    <Button Content="Run" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5"
+                    <Button x:Name="btn_Run" Content="Run" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5"
                         Click="Button_Run_Click"/>
                 </StackPanel>
             </Grid>

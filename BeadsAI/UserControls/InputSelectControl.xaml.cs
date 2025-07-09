@@ -8,27 +8,29 @@ namespace BeadsAI.UserControls
         {
             InitializeComponent();
             DataContext = this;
+
+            StrInput = "Cross";
         }
 
-        public static Dictionary<string, float[]> StrInputmap { get; } = new()
+        public static Dictionary<string, float[]> StrInputMap { get; } = new()
         {
-            { "Input1" , [1,0,1,0,1] },
-            { "Input2" , [0,1,1,0,1] },
-            { "Input3" , [0,0,0,0,0] },
-            { "Input4" , [1,1,1,1,1] }
+            { "Cross", [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0] },
+            { "Face", [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1] },
+            { "Heart", [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0] },
+            { "House", [0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1] }
         };
 
-        public static List<string> StrInputs { get; } = StrInputmap.Keys.ToList();
+        public static List<string> StrInputs { get; } = StrInputMap.Keys.ToList(); // used on binding
 
-        private string input = String.Empty;
+        private string strinput = String.Empty;
 
-        public string Input
+        public string StrInput
         {
-            get { return input; }
+            get { return strinput; }
             set 
             { 
-                input = value;
-                MessageBus.UpdateInput(value);
+                strinput = value;
+                MessageBus.UpdateStrInput(value);
             }
         }
 

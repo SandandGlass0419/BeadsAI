@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace BeadsAI.UserControls
 {
-    public partial class NetworkRunControl : UserControl , INotifyPropertyChanged
+    public partial class NetworkRunControl : UserControl, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -13,7 +14,9 @@ namespace BeadsAI.UserControls
             DataContext = this;
 
             MessageBus.StrBraceletChanged += StrBraceletUpdateHandler;
-            MessageBus.InputChanged += InputUpdateHandler;
+            MessageBus.StrInputChanged += StrInputUpdateHandler;
+
+            StrInputUpdateHandler("Cross"); // fix - maybe use configuration class
         }
 
         public string[] StrBracelet { get; protected set; } = Array.Empty<string>();
@@ -24,7 +27,7 @@ namespace BeadsAI.UserControls
         {
             get { return inputformated; }
             set
-            { 
+            {
                 inputformated = value;
                 OnPropertyChanged(nameof(InputFormated));
             }
@@ -37,22 +40,29 @@ namespace BeadsAI.UserControls
         public float[] Output
         {
             get { return output; }
-            set 
-            { 
+            set
+            {
                 output = value;
                 MessageBus.UpdateOutput(value);
             }
         }
 
+        private bool isrunning = false;
+        private bool istesting = false;
+
         private void StrBraceletUpdateHandler(string[] strbracelet)
         {
             StrBracelet = strbracelet;
+
+            RunEvaluation();
         }
 
-        private void InputUpdateHandler(string input)
+        private void StrInputUpdateHandler(string strinput)
         {
-            Input = InputSelectControl.StrInputmap[input];
-            InputFormated = $"Input: {input}";
+            Input = InputSelectControl.StrInputMap[strinput];
+            InputFormated = $"Input: {strinput}";
+
+            UpdateOutput();
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -62,7 +72,50 @@ namespace BeadsAI.UserControls
 
         private void Button_Run_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Output = [25.1f, 33.333333333333f, 95, 66.6f];
+            isrunning = !isrunning;
+
+            btn_Run.Content = isrunning ? "Stop" : "Run";
+
+            UpdateOutput();
+        }
+
+        private void UpdateOutput() // by running network
+        {
+            if (!isrunning)
+            { return; }
+
+            BraceletNetwork Network = new();
+
+            Network.AddLayers(StrBracelet);
+
+            Output = Network.RunModel(Input);
+
+            //MessageBox.Show("Updated!");
+        }
+
+        private async void RunEvaluation()
+        {
+            if (isrunning)
+            { return; }
+
+            istesting = true;
+            btn_ReRun.IsEnabled = false;
+
+            BraceletNetwork Network = new();
+            Network.AddLayers(StrBracelet);
+
+            try
+            {
+                await Task.Run(() => Network.EvaluateModel(StrBracelet));
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString(),"Exception on Evaluation");
+            }
+            finally
+            {
+                btn_ReRun.IsEnabled = true;
+            }
         }
     }
 }
