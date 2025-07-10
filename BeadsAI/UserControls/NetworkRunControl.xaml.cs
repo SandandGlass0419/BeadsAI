@@ -47,13 +47,14 @@ namespace BeadsAI.UserControls
             }
         }
 
-        private bool isrunning = false;
-        private bool istesting = false;
+        private bool isrunning = false; // keep running when true
+        private bool istesting = false; // only run when false
 
         private void StrBraceletUpdateHandler(string[] strbracelet)
         {
             StrBracelet = strbracelet;
 
+            UpdateOutput();
             RunEvaluation();
         }
 
@@ -70,7 +71,7 @@ namespace BeadsAI.UserControls
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void Button_Run_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void btn_Run_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             isrunning = !isrunning;
 
@@ -85,7 +86,6 @@ namespace BeadsAI.UserControls
             { return; }
 
             BraceletNetwork Network = new();
-
             Network.AddLayers(StrBracelet);
 
             Output = Network.RunModel(Input);
@@ -93,9 +93,14 @@ namespace BeadsAI.UserControls
             //MessageBox.Show("Updated!");
         }
 
+        private void btn_ReRun_Click(object sender, RoutedEventArgs e)
+        {
+            RunEvaluation();
+        }
+
         private async void RunEvaluation()
         {
-            if (isrunning)
+            if (istesting)
             { return; }
 
             istesting = true;
@@ -114,6 +119,7 @@ namespace BeadsAI.UserControls
             }
             finally
             {
+                istesting = false;
                 btn_ReRun.IsEnabled = true;
             }
         }

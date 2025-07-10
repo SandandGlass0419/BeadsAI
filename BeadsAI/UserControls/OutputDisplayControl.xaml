@@ -14,7 +14,7 @@
 
         <Grid Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <Image Source="{Binding ThisImgPath, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" Margin="35,10,10,10"/>
+                <Image Source="{Binding ThisImgPath, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" Stretch="Uniform" Margin="35,10,10,10"/>
                 <TextBlock Text="{Binding FormatedOutput, UpdateSourceTrigger=PropertyChanged}" FontSize="35" VerticalAlignment="Bottom" Margin="10"/>
             </StackPanel>
         </Grid>

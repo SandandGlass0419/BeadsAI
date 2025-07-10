@@ -14,9 +14,9 @@
                 
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="btn_ReRun" Content="Re-run Test" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5"
-                        />
+                        Click="btn_ReRun_Click"/>
                     <Button x:Name="btn_Run" Content="Run" Width="80" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5"
-                        Click="Button_Run_Click"/>
+                        Click="btn_Run_Click"/>
                 </StackPanel>
             </Grid>
         </Border>
