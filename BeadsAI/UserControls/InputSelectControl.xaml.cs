@@ -1,10 +1,8 @@
 ﻿using System.Windows.Controls;
-using System.Threading;
 using System.ComponentModel;
 using OpenCvSharp;
-using OpenCvSharp.Extensions;
-using OpenCvSharp.WpfExtensions;
 using System.Windows.Media.Imaging;
+using OpenCvSharp.WpfExtensions;
 
 namespace BeadsAI.UserControls
 {
@@ -61,9 +59,9 @@ namespace BeadsAI.UserControls
             }
         }
 
-        private WriteableBitmap wbitmap;
+        private BitmapSource? wbitmap;
 
-        public WriteableBitmap WBitmap
+        public BitmapSource? WBitmap
         {
             get { return wbitmap; }
             set
@@ -73,18 +71,24 @@ namespace BeadsAI.UserControls
             }
         }
 
-
         private void btn_Camera_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (iscamon) // cam on
             {
                 iscamon = false;
+
+                btn_Cam.Content = "Camera (Off)";
+                WBitmap = null;
             }
 
             else // cam off
             {
                 iscamon = true;
+
                 camThread = new Thread(CamCapture);
+                camThread.Start();
+
+                btn_Cam.Content = "Camera (On)";
             }
         }
 
@@ -93,21 +97,23 @@ namespace BeadsAI.UserControls
             Camera = new VideoCapture(0); // 0 = default
             Camera.Open(0);
 
-            using (var mat = new Mat())
+            Mat mat = new();
+
+            while (iscamon && Camera.IsOpened())
             {
-                while (iscamon && Camera.IsOpened())
+                if (!Camera.Read(mat))
+                { continue; }
+
+                var bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(mat);
+
+                Dispatcher.Invoke(() =>
                 {
-                    if (!Camera.Read(mat))
-                    { continue; }
-
-                    var writeablebitmap = mat.ToWriteableBitmap();
-                    writeablebitmap.Freeze();
-
-                    var bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(mat);
-                    
-                    WBitmap = writeablebitmap;
-                }
+                    WBitmap = bitmap.ToBitmapSource();
+                });
             }
+
+            mat.Dispose();
+            Camera.Release();
         }
 
         private void OnPropertyChanged(string propertyName)

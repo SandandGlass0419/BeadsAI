@@ -22,7 +22,7 @@
                 <StackPanel>
                     <Image x:Name="CameraFeed" Stretch="Uniform" Margin="10"
                            Source="{Binding WBitmap, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Button Content="Camera (Off)" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"
+                    <Button x:Name="btn_Cam" Content="Camera (Off)" Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"
                             Click="btn_Camera_Click"/>
                 </StackPanel>
             </TabItem>

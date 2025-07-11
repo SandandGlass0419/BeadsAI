@@ -9,7 +9,7 @@
     <Grid Margin="5">
         <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1">
             <Grid>
-                <TextBlock FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5"
+                <TextBlock FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
                        Text="{Binding InputFormated, UpdateSourceTrigger=PropertyChanged}"/>
                 
                 <StackPanel Orientation="Horizontal">
