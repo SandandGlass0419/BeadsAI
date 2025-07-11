@@ -19,6 +19,6 @@
             </StackPanel>
         </Grid>
 
-        <ProgressBar Grid.Row="1" Margin="35,25,35,45" Value="{Binding OutputPercent, UpdateSourceTrigger=PropertyChanged}"/>
+        <ProgressBar Grid.Row="1" Margin="35,15,35,35" Value="{Binding OutputPercent, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>

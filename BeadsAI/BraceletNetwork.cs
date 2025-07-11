@@ -67,9 +67,14 @@ namespace BeadsAI
 
             Weights = new()
             {
-                {"Red", ExampleWeights.OneValue(WeightLen,0.5f) },
-                {"Blue", ExampleWeights.OneValue(WeightLen,0.7f) },
-                {"Green", ExampleWeights.OneValue(WeightLen,-0.3f) }
+                {"Red", ExampleWeights.OneValue(WeightLen,-0.4f) },
+                {"Blue", ExampleWeights.OneValue(WeightLen,-0.3f) },
+                {"Green", ExampleWeights.OneValue(WeightLen,-0.2f) },
+                {"LightGreen", ExampleWeights.OneValue(WeightLen,-0.1f) }, // gr2
+                {"SkyBlue", ExampleWeights.OneValue(WeightLen,0.1f) }, // ls
+                {"LightYellow", ExampleWeights.OneValue(WeightLen,0.2f) }, // ly
+                {"LightPink", ExampleWeights.OneValue(WeightLen,0.3f) }, // p1
+                {"Purple", ExampleWeights.OneValue(WeightLen,0.4f) } // pp
             };
 
             ColorMetRequirements();
@@ -84,9 +89,14 @@ namespace BeadsAI
 
             Weights = new()
             {
-                {"Red", ExampleWeights.OneValue(WeightLen,0.5f) },
-                {"Blue", ExampleWeights.OneValue(WeightLen,0.7f) },
-                {"Green", ExampleWeights.OneValue(WeightLen,-0.3f) }
+                {"Red", ExampleWeights.OneValue(WeightLen,-0.4f) },
+                {"Blue", ExampleWeights.OneValue(WeightLen,-0.3f) },
+                {"Green", ExampleWeights.OneValue(WeightLen,-0.2f) },
+                {"LightGreen", ExampleWeights.OneValue(WeightLen,-0.1f) }, // gr2
+                {"SkyBlue", ExampleWeights.OneValue(WeightLen,0.1f) }, // ls
+                {"LightYellow", ExampleWeights.OneValue(WeightLen,0.2f) }, // ly
+                {"LightPink", ExampleWeights.OneValue(WeightLen,0.3f) }, // p1
+                {"Purple", ExampleWeights.OneValue(WeightLen,0.4f) } // pp
             };
 
             ColorMetRequirements();

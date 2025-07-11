@@ -24,7 +24,7 @@
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="150"/>
                 </Grid.RowDefinitions>
 
                 <uc:InputSelectControl Grid.Row="0"/>
@@ -34,11 +34,11 @@
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="191*"/>
+                    <RowDefinition Height="140"/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <uc:BraceletDisplayControl Grid.Row="0"/>
+                <uc:BraceletDisplayControl Grid.Row="0" Margin="0,35,0,35"/>
 
                 <UniformGrid Columns="2" Rows="2" Grid.Row="1">
                     <uc:OutputDisplayControl x:Name="Cross" Tag="0"/>

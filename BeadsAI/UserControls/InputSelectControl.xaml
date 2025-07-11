@@ -10,9 +10,9 @@
         <TabControl Margin="5" Background="GhostWhite">
             <TabItem Header="Manual">
                 <StackPanel>
-                    <Image/>
+                    <Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}" Stretch="Uniform" Margin="10"/>
 
-                    <ComboBox Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    <ComboBox Width="150" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0"
                         ItemsSource="{Binding StrInputs}"
                         SelectedItem="{Binding StrInput}"/>
                 </StackPanel>

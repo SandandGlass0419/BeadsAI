@@ -1,14 +1,17 @@
 ﻿using System.Windows.Controls;
 using OpenCvSharp;
 using System.Threading;
+using System.ComponentModel;
 
 namespace BeadsAI.UserControls
 {
-    public partial class InputSelectControl : UserControl
+    public partial class InputSelectControl : UserControl , INotifyPropertyChanged
     {
         private VideoCapture Camera = new();
         private bool iscamon = false;
         private Thread camThread = new(() => {});
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public InputSelectControl()
         {
@@ -36,7 +39,22 @@ namespace BeadsAI.UserControls
             set 
             { 
                 strinput = value;
+                ImagePath = rootdir + value;
                 MessageBus.UpdateStrInput(value);
+            }
+        }
+
+        private const string rootdir = "pack://application:,,,/Images/";
+
+        private string imagepath = rootdir + StrInputs.First() + ".png";
+
+        public string ImagePath
+        {
+            get { return imagepath; }
+            set 
+            {
+                imagepath = value + ".png";
+                OnPropertyChanged(nameof(ImagePath));
             }
         }
 
@@ -69,6 +87,11 @@ namespace BeadsAI.UserControls
                     //var bitmap = OpenCvSharp.Exten
                 }
             }
+        }
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
