@@ -1,7 +1,10 @@
 ﻿using System.Windows.Controls;
-using OpenCvSharp;
 using System.Threading;
 using System.ComponentModel;
+using OpenCvSharp;
+using OpenCvSharp.Extensions;
+using OpenCvSharp.WpfExtensions;
+using System.Windows.Media.Imaging;
 
 namespace BeadsAI.UserControls
 {
@@ -58,6 +61,19 @@ namespace BeadsAI.UserControls
             }
         }
 
+        private WriteableBitmap wbitmap;
+
+        public WriteableBitmap WBitmap
+        {
+            get { return wbitmap; }
+            set
+            { 
+                wbitmap = value;
+                OnPropertyChanged(nameof(WBitmap));
+            }
+        }
+
+
         private void btn_Camera_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (iscamon) // cam on
@@ -84,7 +100,12 @@ namespace BeadsAI.UserControls
                     if (!Camera.Read(mat))
                     { continue; }
 
-                    //var bitmap = OpenCvSharp.Exten
+                    var writeablebitmap = mat.ToWriteableBitmap();
+                    writeablebitmap.Freeze();
+
+                    var bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(mat);
+                    
+                    WBitmap = writeablebitmap;
                 }
             }
         }
