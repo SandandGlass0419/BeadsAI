@@ -50,9 +50,9 @@ namespace BeadsAI
         {
             Evaluator eval = new();
 
-            foreach (var inputkpv in eval.TestInputs)
+            foreach (var inputkpv in Evaluator.TestInputs)
             {
-                eval.Score(RunModel(inputkpv.Key), inputkpv.Value);
+                eval.AddScore(RunModel(inputkpv.Key), inputkpv.Value);
             }
 
             eval.WriteResults(Bracelet);
@@ -123,19 +123,25 @@ namespace BeadsAI
 
     public class Evaluator
     {
-        public Dictionary<float[], int> TestInputs { get; protected set; } = new() // input, expected answer
+        public static Dictionary<float[], int> TestInputs { get; protected set; } = new() // input, expected answer
         {
             { [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] , 0 } // starts from 0
         };
 
-        public int score = 0;
+        public float Score { get; protected set; } = 0;
+        public float MaxScore { get; protected set; } = 100 * TestInputs.Count;
 
         private static (string folder, string file) path = ("C:\\BeadsLog\\", "Log.txt");
-
-        public void Score(float[] result,int expected)
+        
+        public void AddScore(float[] result,int expected)
         {
-            if (Array.IndexOf(result,result.Max()) == expected)
-            { score++; }
+            Score += result[expected] * 100;
+        }
+
+        public void OldScore(float[] result,int expected)
+        {
+            if (Array.IndexOf(result, result.Max()) == expected)
+            { Score++; }
         }
 
         public void WriteResults(string[] Bracelet)
@@ -143,7 +149,7 @@ namespace BeadsAI
             AddDir(path);
 
             File.AppendAllText(path.folder + path.file, $"Bracelet: {string.Join(',',Bracelet)}" + Environment.NewLine);
-            File.AppendAllText(path.folder + path.file, $"Score: {score}" + Environment.NewLine);
+            File.AppendAllText(path.folder + path.file, $"Score: {Score} / {MaxScore}" + Environment.NewLine);
             File.AppendAllText(path.folder + path.file, Environment.NewLine);
         }
 
