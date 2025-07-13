@@ -38,6 +38,7 @@
     <Resource Include="Images\Face.png" />
     <Resource Include="Images\Heart.png" />
     <Resource Include="Images\House.png" />
+    <Resource Include="Model\input_model.tflite" />
   </ItemGroup>
 
 </Project>

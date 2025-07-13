@@ -1,8 +1,8 @@
-﻿using System.Windows.Controls;
-using System.ComponentModel;
-using OpenCvSharp;
-using System.Windows.Media.Imaging;
+﻿using OpenCvSharp;
 using OpenCvSharp.WpfExtensions;
+using System.ComponentModel;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace BeadsAI.UserControls
 {
