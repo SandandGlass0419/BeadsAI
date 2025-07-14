@@ -1,5 +1,6 @@
 ﻿using OpenCvSharp;
 using OpenCvSharp.WpfExtensions;
+using Emgu.TF.Lite;
 using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -40,14 +41,14 @@ namespace BeadsAI.UserControls
             set 
             { 
                 strinput = value;
-                ImagePath = rootdir + value;
+                ImagePath = imagedir + value;
                 MessageBus.UpdateStrInput(value);
             }
         }
 
-        private const string rootdir = "pack://application:,,,/Images/";
+        private const string imagedir = "pack://application:,,,/Images/";
 
-        private string imagepath = rootdir + StrInputs.First() + ".png";
+        private string imagepath = imagedir + StrInputs.First() + ".png";
 
         public string ImagePath
         {
@@ -120,5 +121,21 @@ namespace BeadsAI.UserControls
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public class InputRecognition
+        {
+            public const string RootDir = "pack://application:,,,/";
+            public string[] OutPuts { get; protected set; } = Array.Empty<string>();
+
+            Interpreter Interpreter = new();
+
+            public void LoadModel(string ModelPath)
+            {
+                Interpreter = new(new FlatBufferModel(RootDir + ModelPath));
+                Interpreter.AllocateTensors();
+            }
+        }
     }
+
+
 }
