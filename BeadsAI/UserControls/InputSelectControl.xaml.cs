@@ -5,7 +5,8 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using Teachable_Machine;
+using System.IO;
+using System.Windows.Markup;
 
 namespace BeadsAI.UserControls
 {
@@ -123,30 +124,23 @@ namespace BeadsAI.UserControls
             Camera.Release();
         }
 
-        private void btn_Camera_Caputre_Click(object sender, System.Windows.RoutedEventArgs e)
+        private const string ModelPath = @"C:\BeadsFolder\Model\keras_model.h5";
+
+        private async void btn_Camera_Caputre_Click(object sender, System.Windows.RoutedEventArgs e) //check
         {
             if (bitmap is null)
             { return; }
 
-            InputRecognition.Run(bitmap);
+            InputRecognition inpRecog = new(ModelPath);
+
+            int result = await inpRecog.Run(InputRecognition.SaveToFile(bitmap));
+
+            StrInput = StrInputs[result];
         }
 
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
-
-    public class InputRecognition
-    {
-        public const string TeachableMachineLink = "https://teachablemachine.withgoogle.com/models/1EGXUbjrX";
-        public static readonly (string Path,string Name) TmpFile = ("C:\\BeadsFolder\\", "tmpfile.png");
-
-        public static void Run(Bitmap bitmap)
-        {
-            bitmap.Save(TmpFile.Path + TmpFile.Name, ImageFormat.Png);
-
-            TeachableMachine.Calculate(TeachableMachineLink, TmpFile.Path + TmpFile.Name);
         }
     }
 }

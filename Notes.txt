@@ -19,3 +19,7 @@ RGB values are float
 
 fix Neurons - check!
 
+use shortcut for program!
+place model at BeadsFolder
+change might need
+
