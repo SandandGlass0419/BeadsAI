@@ -9,6 +9,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using System.IO;
 using BeadsAI.Core;
 using SixLabors.ImageSharp.Processing;
+using System.Runtime.InteropServices;
 
 namespace BeadsAI.UserControls
 {
@@ -127,7 +128,9 @@ namespace BeadsAI.UserControls
 
         private void btn_Camera_Caputre_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            InputRecognition inputRecognition = new("pack://application:,,,/input_model.tflite");
 
+            inputRecognition.Run(BitSource);
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -209,16 +212,17 @@ namespace BeadsAI.UserControls
 
             return image;
         }
-        /*
-        public string Run(BitmapSource bitsource)
+        
+        public void Run(BitmapSource bitsource)
         {
             Image<Rgb24> image = FormatImageDims(ToRgb24(bitsource));
             float[] floatTensor = ToFloats(image);
 
             var inputTensor = Interpreter.GetTensor(0);
 
-            inputTensor = 
+            Marshal.Copy(floatTensor, 0, inputTensor.DataPointer, floatTensor.Length);
+
+            var debugres = Interpreter.Invoke();
         }
-        */
     }
 }
