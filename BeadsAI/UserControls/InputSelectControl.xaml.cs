@@ -128,7 +128,7 @@ namespace BeadsAI.UserControls
 
         private void btn_Camera_Caputre_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            InputRecognition inputRecognition = new("pack://application:,,,/input_model.tflite");
+            InputRecognition inputRecognition = new("Model/input_model.tflite");
 
             inputRecognition.Run(BitSource);
         }
