@@ -4,14 +4,19 @@ using Emgu.TF.Lite;
 using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using System.IO;
+using BeadsAI.Core;
+using SixLabors.ImageSharp.Processing;
 
 namespace BeadsAI.UserControls
 {
-    public partial class InputSelectControl : UserControl , INotifyPropertyChanged
+    public partial class InputSelectControl : UserControl, INotifyPropertyChanged
     {
         private VideoCapture Camera = new();
         private bool iscamon = false;
-        private Thread camThread = new(() => {});
+        private Thread camThread = new(() => { });
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -38,8 +43,8 @@ namespace BeadsAI.UserControls
         public string StrInput
         {
             get { return strinput; }
-            set 
-            { 
+            set
+            {
                 strinput = value;
                 ImagePath = imagedir + value;
                 MessageBus.UpdateStrInput(value);
@@ -53,36 +58,38 @@ namespace BeadsAI.UserControls
         public string ImagePath
         {
             get { return imagepath; }
-            set 
+            set
             {
                 imagepath = value + ".png";
                 OnPropertyChanged(nameof(ImagePath));
             }
         }
 
-        private BitmapSource? wbitmap;
+        private BitmapSource? bitsource;
 
-        public BitmapSource? WBitmap
+        public BitmapSource? BitSource
         {
-            get { return wbitmap; }
+            get { return bitsource; }
             set
-            { 
-                wbitmap = value;
-                OnPropertyChanged(nameof(WBitmap));
+            {
+                bitsource = value;
+                OnPropertyChanged(nameof(BitSource));
             }
         }
 
         private void btn_Camera_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (iscamon) // cam on
+            if (iscamon) // cam current on
             {
                 iscamon = false;
 
                 btn_Cam.Content = "Camera (Off)";
-                WBitmap = null;
+                btn_Cam_Caputre.IsEnabled = false;
+
+                BitSource = null;
             }
 
-            else // cam off
+            else // cam current off
             {
                 iscamon = true;
 
@@ -90,6 +97,7 @@ namespace BeadsAI.UserControls
                 camThread.Start();
 
                 btn_Cam.Content = "Camera (On)";
+                btn_Cam_Caputre.IsEnabled = true;
             }
         }
 
@@ -105,11 +113,11 @@ namespace BeadsAI.UserControls
                 if (!Camera.Read(mat))
                 { continue; }
 
-                var bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(mat);
+                var bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(mat).ToBitmapSource();
 
                 Dispatcher.Invoke(() =>
                 {
-                    WBitmap = bitmap.ToBitmapSource();
+                    BitSource = bitmap;
                 });
             }
 
@@ -117,25 +125,100 @@ namespace BeadsAI.UserControls
             Camera.Release();
         }
 
+        private void btn_Camera_Caputre_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        public class InputRecognition
-        {
-            public const string RootDir = "pack://application:,,,/";
-            public string[] OutPuts { get; protected set; } = Array.Empty<string>();
-
-            Interpreter Interpreter = new();
-
-            public void LoadModel(string ModelPath)
-            {
-                Interpreter = new(new FlatBufferModel(RootDir + ModelPath));
-                Interpreter.AllocateTensors();
-            }
-        }
     }
 
+    public class InputRecognition
+    {
+        public const string RootDir = "pack://application:,,,/";
+        public static readonly string[] OutPuts = ["Cross", "Face", "Heart", "House"];
 
+        Interpreter Interpreter = new();
+
+        public InputRecognition(string ModelPath)
+        {
+            Interpreter = new(new FlatBufferModel(RootDir + ModelPath));
+            Interpreter.AllocateTensors();
+        }
+
+        private int[] GetInputDims()
+        {
+            int[] dims = Interpreter.GetTensor(0).Dims;
+
+            if (dims.Length != 4)
+            { ExceptionThrower.Throw($"{nameof(Interpreter)} didn't have specified tensor length."); }
+
+            if (dims[0] != 1)
+            { ExceptionThrower.Throw($"{nameof(Interpreter)} didn't have specified tensor element."); }
+
+            return dims;
+        }
+
+        private float[] ToFloats(Image<Rgb24> image)
+        {
+            float[] floatTensor = Array.Empty<float>();
+
+            for (int y = 0; y < image.Height; y++)
+            {
+                for (int x = 0; x < image.Width; x++)
+                {
+                    var pixel = image[x, y];
+
+                    floatTensor = [.. floatTensor, pixel.R / 127.5f - 1.0f,
+                                                   pixel.G / 127.5f - 1.0f,
+                                                   pixel.B / 127.5f - 1.0f];
+                }
+            }
+
+            return floatTensor;
+        }
+        
+        private Image<Rgb24> ToRgb24(BitmapSource bitsource)
+        {
+            Image<Rgb24> image;
+
+            using (MemoryStream mstream = new())
+            {
+                BitmapEncoder encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bitsource));
+                encoder.Save(mstream);
+                mstream.Seek(0, SeekOrigin.Begin);
+                image = SixLabors.ImageSharp.Image.Load<Rgb24>(mstream);
+            }
+
+            return image;
+        }
+
+        private Image<Rgb24> FormatImageDims(Image<Rgb24> image)
+        {
+            int[] dims = GetInputDims();
+
+            image.Mutate(x => x.Resize(new ResizeOptions
+            {
+                Size = new SixLabors.ImageSharp.Size(dims[1], dims[2]),
+                Mode = ResizeMode.Crop
+            }));
+
+            return image;
+        }
+        /*
+        public string Run(BitmapSource bitsource)
+        {
+            Image<Rgb24> image = FormatImageDims(ToRgb24(bitsource));
+            float[] floatTensor = ToFloats(image);
+
+            var inputTensor = Interpreter.GetTensor(0);
+
+            inputTensor = 
+        }
+        */
+    }
 }
