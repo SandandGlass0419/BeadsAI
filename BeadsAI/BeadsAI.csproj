@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Evaluate.exe" />
     <None Remove="Images\Cross.png" />
     <None Remove="Images\Face.png" />
     <None Remove="Images\Heart.png" />
@@ -35,6 +36,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Evaluate.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Cross.png" />
     <Resource Include="Images\Face.png" />
     <Resource Include="Images\Heart.png" />
