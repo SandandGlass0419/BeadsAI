@@ -10,7 +10,7 @@ namespace BeadsAI.UserControls
 {
     public class InputRecognition
     {
-        private readonly string PythonModelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ModelCore.py");
+        private readonly string PythonModelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Core\InputRecognition\ModelCore.py");
         private readonly string ModelPath = string.Empty;
         private const string tmpfilepath = @"C:\BeadsFolder\tmpfile.jpeg";
 
@@ -25,7 +25,7 @@ namespace BeadsAI.UserControls
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = "python",
+                    FileName = "py",
                     Arguments = $"\"{PythonModelPath}\" \"{ImagePath}\" \"{ModelPath}\"",
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
@@ -42,11 +42,12 @@ namespace BeadsAI.UserControls
             process.Start();
 
             string output = await process.StandardOutput.ReadToEndAsync();
+            string error = await process.StandardError.ReadToEndAsync();
 
             process.WaitForExit();
 
             if (process.ExitCode != 0 || output.StartsWith("Error"))
-            { ExceptionThrower.Throw($"Python ModelCore.py throwed error ({process.ExitCode})"); }
+            { ExceptionThrower.Throw($"Python ModelCore.py throwed error: {error}, ({process.ExitCode})"); }
 
             return Convert.ToInt32(output);
         }

@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Windows.Markup;
+using System.Windows;
 
 namespace BeadsAI.UserControls
 {
@@ -134,6 +135,8 @@ namespace BeadsAI.UserControls
             InputRecognition inpRecog = new(ModelPath);
 
             int result = await inpRecog.Run(InputRecognition.SaveToFile(bitmap));
+
+            MessageBox.Show($"Upadated: {result}");
 
             StrInput = StrInputs[result];
         }
