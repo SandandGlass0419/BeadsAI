@@ -10,7 +10,7 @@ namespace BeadsAI
         public static Rectangle Bounds => new Rectangle(728,1965,3200,100);
         public static int Parts => 32;
          
-        public const string saved_dir = "C:\\pics\\";
+        public const string saved_dir = "C:\\BeadsFolder\\ColorDefs\\";
 
         public static Dictionary<string, CieLab> StrLabMap => new()
         {

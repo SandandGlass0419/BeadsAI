@@ -160,7 +160,7 @@ namespace BeadsAI
         public float Score { get; protected set; } = 0;
         public float MaxScore { get; protected set; } = 100 * TestInputs.Count;
 
-        private static (string folder, string file) path = ("C:\\BeadsLog\\", "Log.txt");
+        private static (string folder, string file) path = ("C:\\BeadsFolder\\", "Log.txt");
         
         public void AddScore(float[] result,int expected)
         {
