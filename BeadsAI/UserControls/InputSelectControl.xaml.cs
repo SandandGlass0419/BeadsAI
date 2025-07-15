@@ -1,15 +1,17 @@
 ﻿using OpenCvSharp;
 using OpenCvSharp.WpfExtensions;
-using Emgu.TF.Lite;
 using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using System.IO;
-using BeadsAI.Core;
+using Teachable_Machine;
 using SixLabors.ImageSharp.Processing;
 using System.Runtime.InteropServices;
+using System.Drawing;
+using System.Drawing.Imaging;
+using OpenCvSharp.Extensions;
 
 namespace BeadsAI.UserControls
 {
@@ -66,9 +68,9 @@ namespace BeadsAI.UserControls
             }
         }
 
-        private BitmapSource? bitsource;
+        private Bitmap? bitsource;
 
-        public BitmapSource? BitSource
+        public Bitmap? BitSource
         {
             get { return bitsource; }
             set
@@ -114,7 +116,7 @@ namespace BeadsAI.UserControls
                 if (!Camera.Read(mat))
                 { continue; }
 
-                var bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(mat).ToBitmapSource();
+                var bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(mat);//.ToBitmapSource();
 
                 Dispatcher.Invoke(() =>
                 {
@@ -128,9 +130,7 @@ namespace BeadsAI.UserControls
 
         private void btn_Camera_Caputre_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            InputRecognition inputRecognition = new("Model/input_model.tflite");
-
-            inputRecognition.Run(BitSource);
+            //TeachableMachine.Calculate()
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -141,88 +141,13 @@ namespace BeadsAI.UserControls
 
     public class InputRecognition
     {
-        public const string RootDir = "pack://application:,,,/";
-        public static readonly string[] OutPuts = ["Cross", "Face", "Heart", "House"];
+        public const string TeachableMachineLink = "";
 
-        Interpreter Interpreter = new();
-
-        public InputRecognition(string ModelPath)
+        /*
+        public string SaveToFile(BitmapSource BitSource)
         {
-            Interpreter = new(new FlatBufferModel(RootDir + ModelPath));
-            Interpreter.AllocateTensors();
+            BitmapEncoder Encoder = 
         }
-
-        private int[] GetInputDims()
-        {
-            int[] dims = Interpreter.GetTensor(0).Dims;
-
-            if (dims.Length != 4)
-            { ExceptionThrower.Throw($"{nameof(Interpreter)} didn't have specified tensor length."); }
-
-            if (dims[0] != 1)
-            { ExceptionThrower.Throw($"{nameof(Interpreter)} didn't have specified tensor element."); }
-
-            return dims;
-        }
-
-        private float[] ToFloats(Image<Rgb24> image)
-        {
-            float[] floatTensor = Array.Empty<float>();
-
-            for (int y = 0; y < image.Height; y++)
-            {
-                for (int x = 0; x < image.Width; x++)
-                {
-                    var pixel = image[x, y];
-
-                    floatTensor = [.. floatTensor, pixel.R / 127.5f - 1.0f,
-                                                   pixel.G / 127.5f - 1.0f,
-                                                   pixel.B / 127.5f - 1.0f];
-                }
-            }
-
-            return floatTensor;
-        }
-        
-        private Image<Rgb24> ToRgb24(BitmapSource bitsource)
-        {
-            Image<Rgb24> image;
-
-            using (MemoryStream mstream = new())
-            {
-                BitmapEncoder encoder = new PngBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create(bitsource));
-                encoder.Save(mstream);
-                mstream.Seek(0, SeekOrigin.Begin);
-                image = SixLabors.ImageSharp.Image.Load<Rgb24>(mstream);
-            }
-
-            return image;
-        }
-
-        private Image<Rgb24> FormatImageDims(Image<Rgb24> image)
-        {
-            int[] dims = GetInputDims();
-
-            image.Mutate(x => x.Resize(new ResizeOptions
-            {
-                Size = new SixLabors.ImageSharp.Size(dims[1], dims[2]),
-                Mode = ResizeMode.Crop
-            }));
-
-            return image;
-        }
-        
-        public void Run(BitmapSource bitsource)
-        {
-            Image<Rgb24> image = FormatImageDims(ToRgb24(bitsource));
-            float[] floatTensor = ToFloats(image);
-
-            var inputTensor = Interpreter.GetTensor(0);
-
-            Marshal.Copy(floatTensor, 0, inputTensor.DataPointer, floatTensor.Length);
-
-            var debugres = Interpreter.Invoke();
-        }
+        */
     }
 }
