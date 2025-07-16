@@ -6,9 +6,9 @@ namespace BraceletTest
     {
         static void Main(string[] args)
         {
-            //NetworkTest();
+            NetworkTest();
 
-            RecognitionTest();
+            //RecognitionTest();
         }
 
         static void NetworkTest()
@@ -20,7 +20,7 @@ namespace BraceletTest
                                    "Blue","Green","Red","Red","Green","Blue","Blue","Green",
                                    "Red","Green","Blue","Blue","Red","Green","Green","Blue"]);
 
-            var result = NetworkTest.RunModel([ 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0]);
+            var result = NetworkTest.RunModel([ 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0,1]);
 
             Console.WriteLine(string.Join(',',result));
         }

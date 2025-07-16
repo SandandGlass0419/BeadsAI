@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BeadsAI.Core.NeuralNetwork
+﻿namespace BeadsAI.Core.NeuralNetwork
 {
     public static class ExampleWeights
     {
+        public static float Amplifyer { get; set; } = 0.7f;
+
         // value value value value ...
         public static float[] OneValue(int length,float value)
         {
-            return Enumerable.Repeat(value, length).ToArray();
+            return Enumerable.Repeat(value * Amplifyer, length).ToArray();
         }
 
         // value1 value2 value1 value2 ...
         public static float[] Striped(int length, float value1, float value2)
         {
             float[] vector = new float[length];
+
+            value1 *= Amplifyer;
+            value2 *= Amplifyer;
 
             for (int i = 0; i < length / 2; i++)
             {
@@ -26,7 +25,7 @@ namespace BeadsAI.Core.NeuralNetwork
             }
 
             if (length % 2 == 1)
-            { vector[length] = value1; }
+            { vector[length - 1] = value1; }
 
             return vector;
         }
@@ -34,9 +33,11 @@ namespace BeadsAI.Core.NeuralNetwork
         // start start+difference start+2*difference ...
         public static float[] Increasing(int length, float start, float difference)
         {
-            var range = Enumerable.Range(1, length);
+            start *= Amplifyer;
 
-            return range.Select(element => element * difference).ToArray();
+            var range = Enumerable.Range(0, length);
+
+            return range.Select(index => start + index * difference).ToArray();
         }
     }
 }
