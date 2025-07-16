@@ -1,4 +1,4 @@
-# Run on Python 3.11.7, tensorflow 2.12.1 to avoid errors
+# Run on Python 3.11.7, tensorflow 2.12.1 to avoid errors pywin32
 from keras.models import load_model
 from PIL import Image, ImageOps
 import tensorflow as tf

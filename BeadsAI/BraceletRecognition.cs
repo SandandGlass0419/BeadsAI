@@ -7,7 +7,7 @@ namespace BeadsAI
 {
     public class BraceletRecognitionConfig : IRGBFindConfig
     {
-        public static Rectangle Bounds => new Rectangle(710,1950,3200,200);
+        public static Rectangle Bounds => new Rectangle(1510,550,150,2450);
         public static int Parts => 32;
          
         public const string saved_dir = "C:\\BeadsFolder\\ColorDefs\\";
