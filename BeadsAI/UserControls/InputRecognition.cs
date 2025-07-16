@@ -1,16 +1,15 @@
-﻿using System;
-using System.IO;
+﻿using BeadsAI.Core;
 using System.Diagnostics;
-using System.Threading.Tasks;
-using BeadsAI.Core;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
+using System.Windows;
 
 namespace BeadsAI.UserControls
 {
     public class InputRecognition
     {
-        private readonly string PythonModelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Core\InputRecognition\ModelCore.py");
+        private readonly (string Dir,string Path) Core = (Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Core\InputRecognition\") , "ModelCore.py");
         private readonly string ModelPath = string.Empty;
         private const string tmpfilepath = @"C:\BeadsFolder\tmpfile.jpeg";
 
@@ -25,8 +24,9 @@ namespace BeadsAI.UserControls
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = "py",
-                    Arguments = $"\"{PythonModelPath}\" \"{ImagePath}\" \"{ModelPath}\"",
+                    FileName = "python",
+                    Arguments = $"\"{Core.Dir + Core.Path}\" \"{ImagePath}\" \"{ModelPath}\"",
+                    WorkingDirectory = Core.Dir,
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,

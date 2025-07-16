@@ -1,10 +1,13 @@
 # Run on Python 3.11.7, tensorflow 2.12.1 to avoid errors
 from keras.models import load_model
 from PIL import Image, ImageOps
+import tensorflow as tf
 import numpy as np
 import sys
 import os
 
+tf.get_logger().setLevel('ERROR')
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 np.set_printoptions(suppress=True)
 
 def Classify(modelpath,imagepath):
@@ -23,7 +26,7 @@ def Classify(modelpath,imagepath):
 
     data[0] = normalized_image_array
 
-    prediction = model.predict(data)
+    prediction = model.predict(data,verbose=0)
     index = np.argmax(prediction)
     confidence_score = prediction[0][index]
 
@@ -34,8 +37,8 @@ if __name__ == "__main__":
         print("Error: Use, python ModelCore.py <modelpath> <imagepath>")
         sys.exit(1)
 
-    modelpath = sys.argv[1]
-    imagepath = sys.argv[2]
+    imagepath = sys.argv[1]
+    modelpath = sys.argv[2]
 
     if not os.path.exists(modelpath):
         print(f"Error: {modelpath} is not a valid path for model.")

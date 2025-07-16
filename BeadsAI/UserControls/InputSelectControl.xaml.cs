@@ -132,13 +132,15 @@ namespace BeadsAI.UserControls
             if (bitmap is null)
             { return; }
 
+            btn_Cam_Caputre.IsEnabled = false;
+
             InputRecognition inpRecog = new(ModelPath);
 
             int result = await inpRecog.Run(InputRecognition.SaveToFile(bitmap));
 
-            MessageBox.Show($"Upadated: {result}");
-
             StrInput = StrInputs[result];
+
+            btn_Cam_Caputre.IsEnabled = true;
         }
 
         private void OnPropertyChanged(string propertyName)
