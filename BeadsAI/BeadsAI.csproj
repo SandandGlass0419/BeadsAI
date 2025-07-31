@@ -23,14 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Emgu.TF.Lite" Version="2.16.1.1623" />
-    <PackageReference Include="Emgu.TF.Lite.runtime.windows" Version="2.16.1.1623" />
     <PackageReference Include="OpenCvSharp4" Version="4.11.0.20250507" />
     <PackageReference Include="OpenCvSharp4.Extensions" Version="4.11.0.20250507" />
     <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.11.0.20250507" />
     <PackageReference Include="OpenCvSharp4.Windows" Version="4.11.0.20250507" />
     <PackageReference Include="OpenCvSharp4.WpfExtensions" Version="4.11.0.20250507" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.10" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.11" />
     <PackageReference Include="TorchSharp" Version="0.105.1" />
     <PackageReference Include="TorchSharp-cpu" Version="0.105.1" />
   </ItemGroup>
@@ -40,7 +38,6 @@
     <Resource Include="Images\Face.png" />
     <Resource Include="Images\Heart.png" />
     <Resource Include="Images\House.png" />
-    <Resource Include="Model\input_model.tflite" />
   </ItemGroup>
 
 </Project>
