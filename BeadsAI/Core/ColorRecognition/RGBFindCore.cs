@@ -2,36 +2,28 @@
 using SixLabors.ImageSharp.ColorSpaces;
 using SixLabors.ImageSharp.ColorSpaces.Conversion;
 using SixLabors.ImageSharp.PixelFormats;
-using System.IO;
 
 namespace BeadsAI.Core.ColorRecognition
 {
     public interface IRGBFindConfig
     {
-        public static abstract Rectangle Bounds { get; }
+        public static abstract Rectangle VerticalBounds { get; }
+        public static abstract Rectangle HorizontalBounds { get; }
         public static abstract int Parts { get; }
-        public static abstract Dictionary<string, CieLab> StrLabMap { get; }
+        public static abstract Dictionary<string, Rgba32> StrRgbMap { get; }
+        public static abstract bool UseCieLab { get; }
     }
 
     public abstract class RGBFindCore
     {
-        public abstract Dictionary<string, CieLab> StrLabMap { get; protected set; }
-
-        public static Image<Rgba32> PathToImage(string path)
-        {
-            if (!File.Exists(path))
-            { ExceptionThrower.Throw($"File: {path} does not exist."); }
-
-            return Image.Load<Rgba32>(path);
-        }
+        public abstract Dictionary<string, Rgba32> StrRgbMap { get; protected set; }
+        public abstract bool UseCieLab { get; protected set; }
 
         public static CieLab ToCieLab(Rgba32 rgba32)
         {
             ColorSpaceConverter converter = new();
 
-            var rgb = new Rgb(rgba32.R / 255f, rgba32.G / 255f, rgba32.B / 255f);
-
-            return converter.ToCieLab(rgb);
+            return converter.ToCieLab(rgba32);
         }
 
         public static Rgba32 GetAverageRGB(Image<Rgba32> image)
@@ -96,20 +88,37 @@ namespace BeadsAI.Core.ColorRecognition
             return blue;
         }
 
-        public string FindCloseColor(CieLab lab)
+        public string FindCloseColor(Rgba32 rgb)
         {
             (string color_name, double distance) minimum = ("None", double.MaxValue);
 
-            foreach (string StringColor in StrLabMap.Keys) // candidate color
+            foreach (string StringColor in StrRgbMap.Keys) // candidate color
             {
-                double distance = Math.Sqrt(Math.Pow(StrLabMap[StringColor].L - lab.L,2) +
-                                            Math.Pow(StrLabMap[StringColor].A - lab.A,2) +
-                                            Math.Pow(StrLabMap[StringColor].B - lab.B,2));
+                double distance = UseCieLab ? GetLabDistance(ToCieLab(rgb), StringColor)
+                                            : GetRgbDistance(rgb, StringColor);
 
                 minimum = distance < minimum.distance ? (StringColor, distance) : minimum;
             }
 
             return minimum.color_name;
+        }
+
+        private double GetRgbDistance(Rgba32 rgb,string StringColor)
+        {
+            return
+            Math.Sqrt(Math.Pow(StrRgbMap[StringColor].R - rgb.R, 2) +
+                      Math.Pow(StrRgbMap[StringColor].G - rgb.G, 2) +
+                      Math.Pow(StrRgbMap[StringColor].B - rgb.B, 2));
+        }
+
+        private double GetLabDistance(CieLab lab,string StringColor)
+        {
+            CieLab checking = ToCieLab(StrRgbMap[StringColor]);
+
+            return
+            Math.Sqrt(Math.Pow(checking.L - lab.L, 2) +
+                      Math.Pow(checking.A - lab.A, 2) +
+                      Math.Pow(checking.B - lab.B, 2));
         }
     }
 }

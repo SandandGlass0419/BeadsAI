@@ -1,6 +1,7 @@
 ﻿using OpenCvSharp;
 using OpenCvSharp.WpfExtensions;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
@@ -59,6 +60,7 @@ namespace BeadsAI.UserControls
             }
         }
 
+        private Bitmap? bitmap;
         private BitmapSource? bitsource;
 
         public BitmapSource? BitSource
@@ -80,6 +82,7 @@ namespace BeadsAI.UserControls
                 btn_Cam.Content = "Camera (Off)";
                 btn_Cam_Caputre.IsEnabled = false;
 
+                bitmap = null;
                 BitSource = null;
             }
 
@@ -107,11 +110,13 @@ namespace BeadsAI.UserControls
                 if (!Camera.Read(mat))
                 { continue; }
 
-                var bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(mat).ToBitmapSource();
+                var bitmap = OpenCvSharp.Extensions.BitmapConverter.ToBitmap(mat);
+                var bitmapsource = bitmap.ToBitmapSource();
 
                 Dispatcher.Invoke(() =>
                 {
-                    BitSource = bitmap;
+                    this.bitmap = bitmap;
+                    BitSource = bitmapsource;
                 });
             }
 
@@ -121,7 +126,18 @@ namespace BeadsAI.UserControls
 
         private void btn_Camera_Caputre_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (bitmap is null)
+            { return; }
 
+            btn_Cam_Caputre.IsEnabled = false;
+
+            //InputRecognition inpRecog = new(ModelPath);
+
+            //int result = await inpRecog.Run(InputRecognition.SaveToFile(bitmap));
+
+            //StrInput = StrInputs[result];
+
+            btn_Cam_Caputre.IsEnabled = true;
         }
 
         private void OnPropertyChanged(string propertyName)
