@@ -15,7 +15,7 @@ namespace BeadsAI
          
         public const string saved_dir = "C:\\BeadsFolder\\ColorDefs\\";
 
-        public static Dictionary<string, Rgba32> StrRgbMap => new()
+        public static Dictionary<string, Rgba32[]> StrRgbMap => new()
         {
             {"Red", RgbDefiner(saved_dir + "Red.jpg") },
             {"Blue", RgbDefiner(saved_dir + "Blue.jpg") },
@@ -27,37 +27,37 @@ namespace BeadsAI
             {"Purple", RgbDefiner(saved_dir + "Purple.jpg") }
         };
 
-        private static Rgba32 RgbDefiner(string Path)
+        private static Rgba32[] RgbDefiner(string Path)
         {
-            Image<Rgba32> image = BraceletRecognition.PathToImage(Path);
+            Image<Rgba32>[] images = BraceletRecognition.ProcessImage(Path);
 
-            Rectangle bounds = image.Width > image.Height ? HorizontalBounds : VerticalBounds;
+            Rgba32[] colordef = images.Select(img => BraceletRecognition.GetAverageRGB(img)).ToArray();
 
-            image = CropTool.CropImage(image, bounds);
+            return colordef;
+        }
 
-            Rgba32 new_rgba32 = BraceletRecognition.GetAverageRGB(image);
-
-            image.Dispose();
-
-            return new_rgba32;
+        public static void PreLoadMap()
+        {
+            _ = StrRgbMap.Count;
         }
     }
 
     public class BraceletRecognition : RGBFindCore
     {
-        public override Dictionary<string, Rgba32> StrRgbMap { get; protected set; } = BraceletRecognitionConfig.StrRgbMap;
+        public override Dictionary<string, Rgba32[]> StrRgbMap { get; protected set; } = BraceletRecognitionConfig.StrRgbMap;
+
         public override bool UseCieLab { get; protected set; } = BraceletRecognitionConfig.UseCieLab;
 
         public string[] FindBraceletColors(string Path)
         {
             Image<Rgba32>[] images = ProcessImage(Path);
 
-            string[] BraceletColors = Array.Empty<string>();
+            string[] BraceletColors = new string[BraceletRecognitionConfig.Parts];
 
-            foreach (var element_image in images)
+            for (int pos = 0; pos < BraceletRecognitionConfig.Parts; pos++)
             {
-                Rgba32 averageRGB = GetAverageRGB(element_image);
-                BraceletColors = [.. BraceletColors, FindCloseColor(averageRGB)];
+                Rgba32 averageRgb = GetAverageRGB(images[pos]);
+                BraceletColors[pos] = FindCloseColor(averageRgb, pos);
             }
             
             return BraceletColors;

@@ -24,15 +24,6 @@ Beadsfolder
 	Model
 	Logs.txt
 
-{"Red", new CieLab(53.232f,80.109f,67.220f) },
-{"Blue", new CieLab(87.737f,-86.184f,83.181f) },
-{"Green", new CieLab(32.302f,79.196f,-107.863f) },
-{"LightGreen", new CieLab(91.957f,-52.483f,81.866f) },
-{"SkyBlue", new CieLab(90.299f,-11.507f,-14.875f) },
-{"LightYellow", new CieLab(90.871f,-16.658f,40.497f) },
-{"LightPink", new CieLab(81.052f,27.968f,5.025f) },
-{"Purple", new CieLab(68.119f,19.873f,-28.206f) }
-
 check logic for splitting image
 add logic for determine horizontal/vertical
 image, use each rectangle bounds
@@ -40,6 +31,7 @@ image, use each rectangle bounds
 commit
 
 add partial color def
+fix negative pos issue
 
 commit
 
