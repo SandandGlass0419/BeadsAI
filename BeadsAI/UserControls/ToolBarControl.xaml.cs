@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Controls;
-using BeadsAI;
 
 namespace BeadsAI.UserControls
 {
@@ -11,6 +10,8 @@ namespace BeadsAI.UserControls
         {
             InitializeComponent();
             DataContext = this;
+
+            BraceletRecognitionConfig.PreLoadMap();
         }
 
         private string[] strbracelet = Array.Empty<string>();

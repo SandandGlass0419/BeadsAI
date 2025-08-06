@@ -8,14 +8,15 @@ namespace BeadsAI
 {
     public class BraceletRecognitionConfig : IRGBFindConfig
     {
-        public static Rectangle VerticalBounds => new Rectangle(0, 0, 0, 0);
-        public static Rectangle HorizontalBounds => new Rectangle(0, 0, 0, 0);
+        public static Rectangle VerticalBounds => new Rectangle(432, 153, 43, 931); // 432, 153, 43, 931
+        public static Rectangle HorizontalBounds => new Rectangle(153, 426, 931, 43);
         public static int Parts => 32;
         public static bool UseCieLab => false;
          
         public const string saved_dir = "C:\\BeadsFolder\\ColorDefs\\";
 
-        public static Dictionary<string, Rgba32[]> StrRgbMap => new()
+        public static Dictionary<string, Rgba32[]> StrRgbMap => new() // defines with rgb first, convert to lab
+        /*                                                            // when comparing
         {
             {"Red", RgbDefiner(saved_dir + "Red.jpg") },
             {"Blue", RgbDefiner(saved_dir + "Blue.jpg") },
@@ -26,7 +27,19 @@ namespace BeadsAI
             {"LightPink", RgbDefiner(saved_dir + "LightPink.jpg") },
             {"Purple", RgbDefiner(saved_dir + "Purple.jpg") }
         };
-
+        */
+        
+        {
+            {"Red", RgbDefiner(saved_dir + "TestRed.png") },
+            {"Blue", RgbDefiner(saved_dir + "TestBlue.png") },
+            { "Green", RgbDefiner(saved_dir + "TestGreen.png") },
+            { "LightGreen", RgbDefiner(saved_dir + "TestLightGreen.png") },
+            { "SkyBlue", RgbDefiner(saved_dir + "TestSkyBlue.png") },
+            { "LightYellow", RgbDefiner(saved_dir + "TestLightYellow.png") },
+            { "LightPink", RgbDefiner(saved_dir + "TestLightPink.png") },
+            { "Purple", RgbDefiner(saved_dir + "TestPurple.png") }
+        };
+        
         private static Rgba32[] RgbDefiner(string Path)
         {
             Image<Rgba32>[] images = BraceletRecognition.ProcessImage(Path);
