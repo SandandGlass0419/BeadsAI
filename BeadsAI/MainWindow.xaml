@@ -34,11 +34,11 @@
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="180"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <uc:BraceletDisplayControl Grid.Row="0" Margin="0,35,0,35"/>
+                <uc:BraceletDisplayFrameControl Grid.Row="0" Margin="5"/>
 
                 <UniformGrid Columns="2" Rows="2" Grid.Row="1">
                     <uc:OutputDisplayControl x:Name="Cross" Tag="0"/>

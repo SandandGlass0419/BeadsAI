@@ -10,5 +10,8 @@
 
         public static Action<float[]>? OutputChanged;
         public static void UpdateOutput(float[] output) => OutputChanged?.Invoke(output);
+
+        public static Action<float>? BestScoreChanged;
+        public static void UpdateBestScore(float bestscore) => BestScoreChanged?.Invoke(bestscore);
     }
 }

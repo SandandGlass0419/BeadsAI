@@ -19,7 +19,7 @@ namespace BeadsAI.UserControls
             StrInputUpdateHandler("Cross"); // fix - maybe use configuration class
         }
 
-        public string[] StrBracelet { get; protected set; } = Array.Empty<string>();
+        public string[] StrBracelet { get; protected set; } = BraceletDisplayControl.InitStrBracelet;
 
         private string inputformated = $"Input: ";
 
@@ -44,6 +44,18 @@ namespace BeadsAI.UserControls
             {
                 output = value;
                 MessageBus.UpdateOutput(value);
+            }
+        }
+
+        private float bestscore;
+
+        public float BestScore
+        {
+            get { return bestscore; }
+            set
+            { 
+                bestscore = value;
+                MessageBus.UpdateBestScore(value);
             }
         }
 
@@ -111,7 +123,9 @@ namespace BeadsAI.UserControls
 
             try
             {
-                await Task.Run(() => Network.EvaluateModel(StrBracelet));
+                var score = await Task.Run(() => Network.EvaluateModel(StrBracelet));
+
+                BestScore = score > bestscore ? score : bestscore;
             }
             catch (Exception e)
             {

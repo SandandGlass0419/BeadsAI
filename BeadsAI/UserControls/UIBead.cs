@@ -17,14 +17,14 @@ namespace BeadsAI.UserControls
 
         public static Dictionary<string, byte[]> StrColorMap { get; } = new()
         {
-                {"Red", [255,0,0] },
-                {"Blue", [0,0,255] },
-                {"Green", [0,255,0] },
-                {"LightGreen", [173,225,47] }, // gr2
-                {"SkyBlue", [135,205,235] }, // ls
-                {"LightYellow", [225,225,191] }, // ly
-                {"LightPink", [225,182,193] }, // p1
-                {"Purple", [106,13,173] } // pp
+            {"Red", [255,0,0] },
+            {"Blue", [0,0,255] },
+            {"Green", [0,255,0] },
+            {"LightGreen", [173,225,47] }, // gr2
+            {"SkyBlue", [135,205,235] }, // ls
+            {"LightYellow", [225,225,191] }, // ly
+            {"LightPink", [225,182,193] }, // p1
+            {"Purple", [106,13,173] } // pp
         };
 
         public static UIBead[] ToBeads(string[] strBracelet)

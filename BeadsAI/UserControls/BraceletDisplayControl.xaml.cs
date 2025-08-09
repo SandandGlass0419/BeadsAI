@@ -1,13 +1,12 @@
-﻿using BeadsAI.Core.NeuralNetwork;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace BeadsAI.UserControls
 {
     public partial class BraceletDisplayControl : UserControl
     {
-        private static readonly string[] InitStrBracelet = Enumerable.Repeat("Red", 32).ToArray();  // set to 32 to prevent exception
+        public const int StrBraceletLength = 32;
+        public static readonly string[] InitStrBracelet = Enumerable.Repeat("Red", StrBraceletLength).ToArray();  // set to 32 to prevent exception
 
         public BraceletDisplayControl()
         {
@@ -15,12 +14,10 @@ namespace BeadsAI.UserControls
 
             MessageBus.StrBraceletChanged += StrBraceletUpdateHandler;
 
-            //SetStrBracelet(InitStrBracelet);
-
             StrBracelet = InitStrBracelet;
         }
 
-        private string[] strbracelet = Array.Empty <string>();
+        private string[] strbracelet = Array.Empty<string>();
 
         public string[] StrBracelet
         {
@@ -32,12 +29,6 @@ namespace BeadsAI.UserControls
             }
         }
 
-        private void SetStrBracelet(string[] strbracelet)
-        {
-            StrBraceletUpdateHandler(strbracelet);
-            StrBracelet = strbracelet;
-        }
-
         private void StrBraceletUpdateHandler(string[] strbracelet) // when setted by others
         {
             this.strbracelet = strbracelet;
@@ -45,7 +36,13 @@ namespace BeadsAI.UserControls
             AddBracelet(UIBead.ToBeads(StrBracelet));
         }
 
-        private Button CreateCustombtn(UIBead bead)
+        private void SetStrBracelet(string[] strbracelet)
+        {
+            StrBraceletUpdateHandler(strbracelet);
+            StrBracelet = strbracelet;
+        }
+
+        private Button CreateCustombtn(UIBead bead,bool canedit)
         {
             Button beadbtn = new Button
             {
@@ -59,8 +56,9 @@ namespace BeadsAI.UserControls
                 Background = bead.Color,
             };
 
-            beadbtn.Click += Beadbtn_Click;
-
+            if (canedit)
+            { beadbtn.Click += Beadbtn_Click; }
+            
             return beadbtn;
         }
 
@@ -70,7 +68,7 @@ namespace BeadsAI.UserControls
 
             foreach (UIBead bead in Bracelet)
             {
-                var btn = CreateCustombtn(bead);
+                var btn = CreateCustombtn(bead, true);
 
                 BraceletDisplay.Children.Add(btn);
             }
@@ -78,7 +76,7 @@ namespace BeadsAI.UserControls
 
         private void EditBracelet(UIBead bead)
         {
-            var btn = CreateCustombtn(bead);
+            var btn = CreateCustombtn(bead, true);
 
             strbracelet[bead.Position] = bead.ColorName;
             StrBracelet = strbracelet; // invoke setter
@@ -89,7 +87,7 @@ namespace BeadsAI.UserControls
 
         private void Beadbtn_Click(object sender, EventArgs e)
         {
-            var beadbtn  = (Button) sender;
+            var beadbtn = (Button) sender;
             var CurrentBead = (UIBead) beadbtn.Tag;
 
             ColorSelectWindow SelectWindow = new(CurrentBead);

@@ -36,6 +36,5 @@ fix negative pos issue
 commit
 
 add input def pattern
-add best combination shower
 
 commit

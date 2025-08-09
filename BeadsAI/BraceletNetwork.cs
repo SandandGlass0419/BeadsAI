@@ -46,16 +46,18 @@ namespace BeadsAI
             return ToArray(Run(ToTensor(input)));
         }
 
-        public void EvaluateModel(string[] Bracelet)
+        public float EvaluateModel(string[] Bracelet)
         {
             Evaluator eval = new();
 
-            foreach (var inputkpv in Evaluator.TestInputs)
+            foreach (var testpairs in Evaluator.TestInputs)
             {
-                eval.AddScore(RunModel(inputkpv.Key), inputkpv.Value);
+                eval.AddScore(RunModel(testpairs.Key), testpairs.Value);
             }
 
             eval.WriteResults(Bracelet);
+
+            return eval.Score;
         }
     }
 

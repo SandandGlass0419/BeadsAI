@@ -9,7 +9,7 @@
 
     <Grid>
         <ScrollViewer Height="70" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
-            <StackPanel x:Name="BraceletDisplay" Height="40" Margin="5" VerticalAlignment="Top" Orientation="Horizontal"/>
-        </ScrollViewer>
+                <StackPanel x:Name="BraceletDisplay" Height="40" Margin="5" VerticalAlignment="Top" Orientation="Horizontal"/>
+            </ScrollViewer>
     </Grid>
 </UserControl>
