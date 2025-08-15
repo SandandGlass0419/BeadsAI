@@ -40,4 +40,8 @@
     <Resource Include="Images\House.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Core\InputRecognition\" />
+  </ItemGroup>
+
 </Project>
