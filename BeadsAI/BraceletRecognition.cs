@@ -16,7 +16,7 @@ namespace BeadsAI
         public const string saved_dir = "C:\\BeadsFolder\\ColorDefs\\";
 
         public static Dictionary<string, Rgba32[]> StrRgbMap => new() // defines with rgb first, convert to lab
-        /*                                                            // when comparing
+                                                                      // when comparing
         {
             {"Red", RgbDefiner(saved_dir + "Red.jpg") },
             {"Blue", RgbDefiner(saved_dir + "Blue.jpg") },
@@ -27,8 +27,8 @@ namespace BeadsAI
             {"LightPink", RgbDefiner(saved_dir + "LightPink.jpg") },
             {"Purple", RgbDefiner(saved_dir + "Purple.jpg") }
         };
-        */
         
+        /*
         {
             {"Red", RgbDefiner(saved_dir + "TestRed.png") },
             {"Blue", RgbDefiner(saved_dir + "TestBlue.png") },
@@ -39,7 +39,8 @@ namespace BeadsAI
             { "LightPink", RgbDefiner(saved_dir + "TestLightPink.png") },
             { "Purple", RgbDefiner(saved_dir + "TestPurple.png") }
         };
-        
+        */
+
         private static Rgba32[] RgbDefiner(string Path)
         {
             Image<Rgba32>[] images = BraceletRecognition.ProcessImage(Path);

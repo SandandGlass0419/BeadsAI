@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Core\InputRecognition\ModelService.py" />
     <None Remove="Images\Cross.png" />
     <None Remove="Images\Face.png" />
     <None Remove="Images\Heart.png" />
@@ -34,14 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Core\InputRecognition\ModelService.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Cross.png" />
     <Resource Include="Images\Face.png" />
     <Resource Include="Images\Heart.png" />
     <Resource Include="Images\House.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Core\InputRecognition\" />
   </ItemGroup>
 
 </Project>

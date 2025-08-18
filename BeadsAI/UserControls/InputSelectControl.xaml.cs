@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using BeadsAI;
 
 namespace BeadsAI.UserControls
 {
@@ -13,12 +14,16 @@ namespace BeadsAI.UserControls
         private bool iscamon = false;
         private Thread camThread = new(() => { });
 
+        private InputRecognition InputRecognition = new();
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public InputSelectControl()
         {
             InitializeComponent();
             DataContext = this;
+
+            MainWindow.NotifyClosing += InputRecognition.TerminateModel;
 
             StrInput = "Cross";
         }
@@ -124,18 +129,18 @@ namespace BeadsAI.UserControls
             Camera.Release();
         }
 
-        private void btn_Camera_Caputre_Click(object sender, System.Windows.RoutedEventArgs e)
+        private async void btn_Camera_Caputre_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (bitmap is null)
             { return; }
 
             btn_Cam_Caputre.IsEnabled = false;
 
-            //InputRecognition inpRecog = new(ModelPath);
+            InputRecognition.SaveToFile(bitmap);
 
-            //int result = await inpRecog.Run(InputRecognition.SaveToFile(bitmap));
+            int result = await InputRecognition.RunModel();
 
-            //StrInput = StrInputs[result];
+            StrInput = StrInputs[result];
 
             btn_Cam_Caputre.IsEnabled = true;
         }

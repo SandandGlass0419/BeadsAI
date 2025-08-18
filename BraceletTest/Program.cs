@@ -12,8 +12,6 @@ namespace BraceletTest
             //RecognitionTest();
 
             await IOTest();
-
-            Console.WriteLine("main end");
         }
 
         static void NetworkTest()
@@ -51,9 +49,11 @@ namespace BraceletTest
         {
             InputRecognition test = new();
 
-            string? line = await test.Run();
+            await test.Initialize();
 
-            Console.WriteLine(line);
+            Console.WriteLine(await test.RunModel());
+
+            test.TerminateModel();
         }
     }
 }

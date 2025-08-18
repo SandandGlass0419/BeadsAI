@@ -1,0 +1,423 @@
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple,Purple
+Score: 800 / 2700
+
+Bracelet: Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue
+Score: 675 / 2700
+
+Bracelet: Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue
+Score: 675 / 2700
+
+Bracelet: LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow,LightYellow
+Score: 800.0273 / 2700
+
+Bracelet: LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen
+Score: 675 / 2700
+
+Bracelet: Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Blue,Blue,Blue,Blue,Blue,Blue,Red,Red,Red,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue
+Score: 675 / 2700
+
+Bracelet: LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink
+Score: 800 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,Purple,Purple,Purple,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 793.0207 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green,Green
+Score: 675 / 2700
+
+Bracelet: SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue,SkyBlue
+Score: 682.1009 / 2700
+
+Bracelet: Blue,Blue,Blue,Blue,Blue,Blue,Red,Red,Red,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue
+Score: 675 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,SkyBlue,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,SkyBlue,Purple,Purple,Purple,SkyBlue,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 740.29645 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,Purple,Purple,Purple,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 793.0207 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,Purple,Purple,Purple,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 793.0207 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,Purple,Purple,Purple,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 793.0207 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Blue,Blue,Green,Green,LightGreen,SkyBlue,Blue,Purple,Blue,Blue,Blue,LightGreen,LightGreen,LightGreen,LightGreen,Green,Blue,Purple,Blue,Blue,Green,Purple,Blue,Purple,Red,Red,Red,Red,Red,Red
+Score: 674.6022 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,Purple,Purple,Purple,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 793.0207 / 2700
+
+Bracelet: Blue,Blue,Blue,Blue,Blue,Blue,Red,Red,Red,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue,Blue
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,Purple,Purple,Purple,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 793.0207 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,Purple,Purple,Purple,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 793.0207 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Green,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Green,Red,Red,Red,Red,Red,Red,LightYellow,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,Purple,Purple,Purple,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 793.0207 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,Purple,Purple,Purple,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 793.0207 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Blue,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Blue,LightPink,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,SkyBlue,LightPink,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink
+Score: 800.0273 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,SkyBlue,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,SkyBlue,LightPink,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,SkyBlue,LightPink,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink
+Score: 800.0273 / 2700
+
+Bracelet: SkyBlue,LightPink,SkyBlue,LightPink,LightYellow,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink,SkyBlue,LightPink
+Score: 800.01514 / 2700
+
+Bracelet: SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink
+Score: 800.028 / 2700
+
+Bracelet: SkyBlue,LightPink,LightYellow,Purple,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink
+Score: 800.00494 / 2700
+
+Bracelet: SkyBlue,LightPink,LightYellow,LightGreen,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink,LightYellow,SkyBlue,LightPink
+Score: 800.05054 / 2700
+
+Bracelet: LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue
+Score: 806.2856 / 2700
+
+Bracelet: LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue
+Score: 806.2856 / 2700
+
+Bracelet: LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue
+Score: 806.2856 / 2700
+
+Bracelet: LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue,LightGreen,LightYellow,LightPink,SkyBlue
+Score: 806.2856 / 2700
+
+Bracelet: SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen
+Score: 806.2856 / 2700
+
+Bracelet: SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen
+Score: 806.2856 / 2700
+
+Bracelet: SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightGreen,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen,SkyBlue,LightPink,LightYellow,LightGreen
+Score: 729.57776 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Blue,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Blue,Blue,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Blue,Blue,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Blue,Blue,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Blue,Blue,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Blue,Blue,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Blue,Blue,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Blue,Blue,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,Purple,Purple,Purple,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 793.0207 / 2700
+
+Bracelet: Red,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,SkyBlue,Green,LightGreen,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 730.80096 / 2700
+
+Bracelet: SkyBlue,LightPink,Blue,Blue,SkyBlue,Green,LightGreen,SkyBlue,Purple,Purple,Blue,Blue,Blue,LightYellow,LightYellow,LightYellow,LightGreen,SkyBlue,Green,LightGreen,Purple,Purple,Green,Purple,Purple,Purple,Red,Red,Red,Red,Red,Red
+Score: 751.5088 / 2700
+
+Bracelet: LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink,LightPink
+Score: 800 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+
+Bracelet: Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red,Red
+Score: 675 / 2700
+

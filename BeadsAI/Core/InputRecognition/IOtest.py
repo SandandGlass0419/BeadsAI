@@ -1,10 +1,20 @@
 import sys
 
-for input in sys.stdin:
-    input = input.strip()
-    
-    if input != "":
-        print(f"{input} recived")
-        sys.stdout.flush()
-        break
+def switch(command):
 
+    if command == "Load":
+        return "Success"
+    
+    elif command == "Evaluate":
+        return "1"
+    
+    else:
+        return "Fail"
+    
+for input in sys.stdin:
+    command = input.strip()
+    
+    responce = switch(command)
+
+    print(responce)
+    sys.stdout.flush()

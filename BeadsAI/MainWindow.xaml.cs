@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.ComponentModel;
 
 namespace BeadsAI
 {
@@ -6,7 +7,16 @@ namespace BeadsAI
     {
         public MainWindow()
         {
-            InitializeComponent();  
+            InitializeComponent();
+
+            Closing += OnClosingHandler;
+        }
+
+        public static event Action? NotifyClosing;
+        
+        private void OnClosingHandler(object? sender, CancelEventArgs e)
+        {
+            NotifyClosing?.Invoke();
         }
     }
 }
