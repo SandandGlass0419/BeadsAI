@@ -35,9 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Core\InputRecognition\ModelService.py">
+    <EmbeddedResource Include="Core\InputRecognition\ModelService.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </EmbeddedResource>
     <Resource Include="Images\Cross.png" />
     <Resource Include="Images\Face.png" />
     <Resource Include="Images\Heart.png" />
